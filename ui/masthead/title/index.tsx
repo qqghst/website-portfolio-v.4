@@ -97,7 +97,7 @@ const Title: React.FC = () => {
                     start: '-64% 16%',
                     end: 'bottom top',
                     scrub: 1,
-                    markers: true,
+                    markers: false,
                 },
             }
         );
@@ -113,7 +113,7 @@ const Title: React.FC = () => {
                     start: '-64% 24%',
                     end: 'bottom top',
                     scrub: 1,
-                    markers: true,
+                    markers: false,
                 },
             }
         );
@@ -129,7 +129,7 @@ const Title: React.FC = () => {
                     start: '-64% 32%',
                     end: 'bottom top',
                     scrub: 1,
-                    markers: true,
+                    markers: false,
                 },
             }
         );

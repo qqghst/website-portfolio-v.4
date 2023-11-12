@@ -8,15 +8,19 @@ import styles from './styles.module.scss';
 import Link from 'next/link';
 
 export default function Menu() {
-    // const [links2Initialized, setLinks2Initialized] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768);
+    }, []);
+
     gsap.registerPlugin(CSSRulePlugin);
 
-    const menuSpanRef = useRef(null);
-    const hamburgerSpanRef = useRef(null);
-    const menuItemsRef = useRef(null);
-    const textRef = useRef(null);
+    const menuSpanRef = useRef<HTMLSpanElement | null>(null);
+    const hamburgerSpanRef = useRef<HTMLSpanElement | null>(null);
+    const menuItemsRef = useRef<HTMLDivElement | null>(null);
 
-    const pathRef = useRef(null);
+    const pathRef = useRef<SVGPathElement | null>(null);
     const toggleBtnRef = useRef<HTMLDivElement | null>(null);
     const hamburgerRef = useRef<HTMLDivElement | null>(null);
 
@@ -24,30 +28,23 @@ export default function Menu() {
     const aboutLinkRef = useRef<HTMLAnchorElement | null>(null);
     const projectsLinkRef = useRef<HTMLAnchorElement | null>(null);
 
-    const links2 = [
-        { ref: homeLinkRef, text: 'home.', href: '/' },
-        { ref: aboutLinkRef, text: 'about me.', href: 'about' },
-        { ref: projectsLinkRef, text: 'projects.', href: 'project' },
+    const links = [
+        { id: 1, label: 'home.', href: '/', ref: homeLinkRef },
+        { id: 2, label: 'about me.', href: '/', ref: aboutLinkRef },
+        { id: 3, label: 'projects.', href: '/', ref: projectsLinkRef },
     ];
 
     useEffect(() => {
         const tl = gsap.timeline({ paused: true });
-        const tl2 = gsap.timeline();
 
         const text = new SplitType(homeLinkRef.current!, {
             types: 'lines',
-            // lineClass: styles['lineParent'],
-            // lineClass: 'lineParent',
         });
         const text2 = new SplitType(aboutLinkRef.current!, {
             types: 'lines',
-            // lineClass: styles['lineParent'],
-            // lineClass: 'lineParent',
         });
         const text3 = new SplitType(projectsLinkRef.current!, {
             types: 'lines',
-            // lineClass: styles['lineParent'],
-            // lineClass: 'lineParent',
         });
 
         //toggle menu
@@ -87,21 +84,33 @@ export default function Menu() {
             );
 
             tl.to(
-                hamburgerSpanRef.current,
+                hamburgerRef.current,
                 {
-                    background: 'black',
-                    ease: 'power2.inOut',
-                    duration: 1,
+                    translateY: 0,
                 },
                 '<'
             );
 
             tl.to(
-                CSSRulePlugin.getRule('span.test::before'),
+                hamburgerSpanRef.current,
                 {
                     background: 'black',
                     ease: 'power2.inOut',
                     duration: 1,
+                    rotation: 45,
+                    transform: 'rotate(45deg)',
+                },
+                '<'
+            );
+
+            tl.to(
+                CSSRulePlugin.getRule('span#test::before'),
+                {
+                    background: 'black',
+                    ease: 'power2.inOut',
+                    duration: 1,
+                    top: 'unset',
+                    transform: 'rotate(-90deg)',
                 },
                 '<'
             );
@@ -110,61 +119,8 @@ export default function Menu() {
                 menuItemsRef.current,
                 {
                     autoAlpha: 1,
-
-                    // visibility: 'visible',
                     display: 'flex',
                     duration: 1,
-                },
-                '<'
-            );
-
-            tl2.fromTo(
-                text.lines,
-                {
-                    opacity: 0,
-                    y: 32,
-                },
-                {
-                    delay: 1,
-                    duration: 0.8,
-                    opacity: 1,
-                    y: 0,
-                    stagger: 0.04,
-                    ease: 'power3.out',
-                },
-                '<'
-            );
-
-            tl2.fromTo(
-                text2.lines,
-                {
-                    opacity: 0,
-                    y: 32,
-                },
-                {
-                    delay: 1,
-                    duration: 0.8,
-                    opacity: 1,
-                    y: 0,
-                    stagger: 0.04,
-                    ease: 'power3.out',
-                },
-                '<'
-            );
-
-            tl2.fromTo(
-                text3.lines,
-                {
-                    opacity: 0,
-                    y: 32,
-                },
-                {
-                    delay: 1,
-                    duration: 0.8,
-                    opacity: 1,
-                    y: 0,
-                    stagger: 0.04,
-                    ease: 'power3.out',
                 },
                 '<'
             );
@@ -194,12 +150,12 @@ export default function Menu() {
             element.innerHTML = '';
 
             let textContainer = document.createElement('div');
-            textContainer.classList.add('block');
+            textContainer.classList.add(styles.block);
 
             for (let letter of innerText) {
                 let span = document.createElement('span');
                 span.innerText = letter.trim() === '' ? '\xa0' : letter;
-                span.classList.add('letter');
+                span.classList.add(styles.letter);
                 textContainer.appendChild(span);
             }
 
@@ -217,40 +173,50 @@ export default function Menu() {
     return (
         <>
             <div className={styles.overlay}>
-                <svg viewBox='0 0 1000 1000'>
-                    <path
-                        ref={pathRef}
-                        d='M0 2S175 1 500 1s500 1 500 1V0H0Z'></path>
-                </svg>
+                {isMobile ? (
+                    <svg
+                        viewBox='0 0 100% 100%'
+                        style={{ width: '100vw', height: '100vh' }}>
+                        <path
+                            ref={pathRef}
+                            d='M0 2S175 1 500 1s500 1 500 1V0H0Z'></path>
+                    </svg>
+                ) : (
+                    <svg viewBox='0 0 1000 1000'>
+                        <path
+                            ref={pathRef}
+                            d='M0 2S175 1 500 1s500 1 500 1V0H0Z'></path>
+                    </svg>
+                )}
             </div>
 
             <div
-                className='toggle-btn'
+                className={styles.toggleBtn}
                 ref={toggleBtnRef}>
-                <div className='menu-span'>
-                    <span ref={menuSpanRef}>menu</span>
+                <div className={styles.menuSpan}>
+                    <span ref={menuSpanRef}>Menu</span>
                 </div>
                 <div
-                    className='hamburger'
+                    className={styles.hamburger}
                     ref={hamburgerRef}>
                     <span
-                        className='test'
+                        id='test'
                         ref={hamburgerSpanRef}></span>
                 </div>
             </div>
 
             <div
-                className='menu-items'
+                className={styles.menuItems}
                 ref={menuItemsRef}>
-                <div className='menu-container'>
-                    {links2.map(({ ref, text, href }) => (
+                <div className={styles.menuContainer}>
+                    {links.map((link) => (
                         <Link
-                            key={text}
-                            ref={ref}
-                            href={href}
-                            id='text'
-                            className='text'>
-                            {text}
+                            key={link.id}
+                            href={link.href}
+                            ref={link.ref}
+                            className={styles.text}
+                            id='text'>
+                            {link.label}
                         </Link>
                     ))}
                 </div>
