@@ -12,6 +12,7 @@ const Title: React.FC = () => {
     const firstLineRef = useRef<HTMLSpanElement | null>(null);
     const secondLineRef = useRef<HTMLSpanElement | null>(null);
     const thirdLineRef = useRef<HTMLSpanElement | null>(null);
+    const gradientRef = useRef<HTMLSpanElement | null>(null);
 
     useEffect(() => {
         const tl = gsap.timeline();
@@ -78,6 +79,13 @@ const Title: React.FC = () => {
         );
 
         tl.fromTo(
+            gradientRef.current,
+            { opacity: 0 },
+            { opacity: 1, duration: 1.8, delay: '-1' },
+            // '<'
+        );
+
+        tl.fromTo(
             firstLineRef.current,
             { x: 0 },
             {
@@ -110,7 +118,7 @@ const Title: React.FC = () => {
             }
         );
         tl.fromTo(
-            thirdLineRef.current,
+            [thirdLineRef.current, gradientRef.current],
             { x: 0 },
             {
                 x: 500,
@@ -131,7 +139,7 @@ const Title: React.FC = () => {
             <span
                 className='h1'
                 ref={firstLineRef}>
-                this is a <span className={styles.gradient}>catchy</span> title
+                this is a catchy title
             </span>
             <br />
             <span
@@ -143,7 +151,16 @@ const Title: React.FC = () => {
             <span
                 className={`${styles.margin3} h1`}
                 ref={thirdLineRef}>
-                keep scrolling.
+                keep{' '}
+                <span
+                    style={{ opacity: 0 }}>
+                    scrolling
+                </span>
+            </span>
+            <span
+                className={`${styles.gradient} h1`}
+                ref={gradientRef}>
+                &nbsp; scrolling.
             </span>
         </>
     );

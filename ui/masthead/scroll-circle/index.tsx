@@ -15,12 +15,12 @@ const ScrollCircle: React.FC = () => {
         );
     }, []);
     return (
-        <div
+        <button
             className={styles.scrollCircle}
             ref={scrollCirleRef}>
             <div className={styles.circle}></div>
             <span className={styles.span}>scroll</span>
-        </div>
+        </button>
     );
 };
 

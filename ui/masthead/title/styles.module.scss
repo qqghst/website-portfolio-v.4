@@ -10,13 +10,13 @@
     margin-right: 14.143vw;
 
     @media (max-width: 768px) {
-        margin-right: 18.143vw;
+        margin-right: 21.143vw;
     }
 }
 
-.span {
+.gradient {
     animation: gradient-animation 2s linear infinite;
-    background: linear-gradient(to right, red, blue, green);
+    background: linear-gradient(to right, #672be5, #0067ff, #83b5ff);
     background-size: 200%;
 
     -webkit-background-clip: text;
@@ -24,6 +24,12 @@
     background-clip: text;
 
     white-space: nowrap;
+
+    transform: translate(1.131vw, -5.952vw); //19px -100px
+
+    @media (max-width: 768px) {
+        transform: translate(2.131vw, -5.952vw);
+    }
 
     @keyframes gradient-animation {
         from {

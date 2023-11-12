@@ -1,18 +1,18 @@
-//svg overlay
-.overlay {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 0;
+// //svg overlay
+// .overlay {
+//     position: absolute;
+//     width: 100vw;
+//     height: 100vh;
+//     top: 0;
+//     left: 0;
+//     z-index: 0;
 
-    svg path {
-        fill: white;
-    }
-}
+//     svg path {
+//         fill: white;
+//     }
+// }
 
-.toggleBtn {
+.toggle-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,12 +92,13 @@ span.test::before {
     // background: black;
 }
 
-
-//menu-items
-.menuItems {
+.menu-items {
     display: flex;
+    // position: fixed;
+    // top: 0;
     width: 100vw;
     height: 100vh;
+    // visibility: hidden;
     opacity: 0;
     overflow: hidden;
     display: none;
@@ -184,9 +185,4 @@ span.test::before {
     &:nth-child(12) {
         transition-delay: 0.33s;
     }
-}
-.lineParent {
-    overflow: hidden;
-    padding-bottom: 10.45rem;
-    // display: none;
 }
