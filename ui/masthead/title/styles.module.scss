@@ -1,0 +1,37 @@
+.margin2 {
+    margin-right: 8.143vw;
+
+    @media (max-width: 768px) {
+        margin-right: 11.143vw;
+    }
+}
+
+.margin3 {
+    margin-right: 14.143vw;
+
+    @media (max-width: 768px) {
+        margin-right: 18.143vw;
+    }
+}
+
+.span {
+    animation: gradient-animation 2s linear infinite;
+    background: linear-gradient(to right, red, blue, green);
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    white-space: nowrap;
+
+    @keyframes gradient-animation {
+        from {
+            background-position: 0% center;
+        }
+
+        to {
+            background-position: -200% center;
+        }
+    }
+}

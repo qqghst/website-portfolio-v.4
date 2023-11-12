@@ -1,0 +1,13 @@
+.navbar {
+    &__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2.381vw 2.381vw; //40px 40px
+
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+    }
+}
