@@ -11,13 +11,13 @@ const Navbar: React.FC = () => {
     const logoRef = useRef(null);
     const timeRef = useRef(null);
     const menuRef = useRef(null);
-    useEffect(() => {
-        gsap.fromTo(
-            [logoRef.current, timeRef.current, menuRef.current],
-            { opacity: 0 },
-            { opacity: 1, duration: 1, delay: 3, stagger: 0.6 }
-        );
-    }, []);
+    // useEffect(() => {
+    //     gsap.fromTo(
+    //         [logoRef.current, timeRef.current, menuRef.current],
+    //         { opacity: 0 },
+    //         { opacity: 1, duration: 1, delay: 3, stagger: 0.6 }
+    //     );
+    // }, []);
 
     return (
         <div className={styles.navbar}>

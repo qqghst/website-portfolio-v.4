@@ -6,15 +6,15 @@ import CSSRulePlugin from 'gsap/dist/CSSRulePlugin';
 import SplitType from 'split-type';
 import styles from './styles.module.scss';
 import Link from 'next/link';
+import useWindowSize from '@/hooks/useWindowSize';
 
 export default function Menu() {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        setIsMobile(window.innerWidth < 768);
-    }, []);
-
     gsap.registerPlugin(CSSRulePlugin);
+    
+    const { width } = useWindowSize();
+    const isMobile = width < 768;
+
+    const toggleMenuRef = useRef<any>(null);
 
     const menuSpanRef = useRef<HTMLSpanElement | null>(null);
     const hamburgerSpanRef = useRef<HTMLSpanElement | null>(null);
@@ -30,8 +30,8 @@ export default function Menu() {
 
     const links = [
         { id: 1, label: 'home.', href: '/', ref: homeLinkRef },
-        { id: 2, label: 'about me.', href: '/', ref: aboutLinkRef },
-        { id: 3, label: 'projects.', href: '/', ref: projectsLinkRef },
+        { id: 2, label: 'about me.', href: '/about', ref: aboutLinkRef },
+        { id: 3, label: 'projects.', href: '/projects', ref: projectsLinkRef },
     ];
 
     useEffect(() => {
@@ -128,7 +128,7 @@ export default function Menu() {
             tl.to('.doesnt-work-without-this-tl', {}).reverse();
         };
 
-        const openMenu = () => {
+        toggleMenuRef.current = () => {
             showMenuItems();
 
             if (toggleBtnRef.current) {
@@ -136,12 +136,13 @@ export default function Menu() {
                     if (hamburgerRef.current) {
                         hamburgerRef.current.classList.toggle('active');
                         tl.reversed(!tl.reversed());
+                        console.log(1);
                     }
                 };
             }
         };
 
-        openMenu();
+        toggleMenuRef.current();
 
         let elements = document.querySelectorAll('#text');
 
@@ -191,7 +192,7 @@ export default function Menu() {
             </div>
 
             <div
-                className={styles.toggleBtn}
+                className={`${styles.toggleBtn} `}
                 ref={toggleBtnRef}>
                 <div className={styles.menuSpan}>
                     <span ref={menuSpanRef}>Menu</span>
@@ -215,7 +216,8 @@ export default function Menu() {
                             href={link.href}
                             ref={link.ref}
                             className={styles.text}
-                            id='text'>
+                            id='text'
+                            onClick={() => toggleMenuRef.current()}>
                             {link.label}
                         </Link>
                     ))}

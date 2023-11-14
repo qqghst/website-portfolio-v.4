@@ -1,5 +1,16 @@
-@media (max-width: 768px) {
-    .hide-on-mobile {
-        display: none;
-    }
+.lineParent {
+    overflow: hidden;
+    font-kerning: none;
+}
+
+//пока что тут пусть будет cssruleplugin, с модульными стилями не разобрался
+span#test::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 1.25px;
+    background: #ffffff;
+    transform: translateY(-4px);
+    transition: transform 0.25s;
 }
