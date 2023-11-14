@@ -1,0 +1,60 @@
+.text121 {
+    text-decoration: none;
+    font-size: 120px;
+    line-height: 140px;
+    color: #222222;
+    height: 140px;
+    overflow: hidden;
+}
+
+.text121:hover .letter121,
+.text121.play .letter121 {
+    transform: translateY(-100%);
+}
+
+.block121:last-child {
+    display: block;
+    color: #f5771b;
+}
+
+.letter121 {
+    display: inline-block;
+    transition: transform 0.6s cubic-bezier(0.76, 0, 0.024, 1);
+}
+
+.letter121:nth-child(1) {
+    transition-delay: 0s;
+}
+.letter121:nth-child(2) {
+    transition-delay: 0.03s;
+}
+.letter121:nth-child(3) {
+    transition-delay: 0.06s;
+}
+.letter121:nth-child(4) {
+    transition-delay: 0.09s;
+}
+.letter121:nth-child(5) {
+    transition-delay: 0.12s;
+}
+.letter121:nth-child(6) {
+    transition-delay: 0.15s;
+}
+.letter121:nth-child(7) {
+    transition-delay: 0.18s;
+}
+.letter121:nth-child(8) {
+    transition-delay: 0.21s;
+}
+.letter121:nth-child(9) {
+    transition-delay: 0.24s;
+}
+.letter121:nth-child(10) {
+    transition-delay: 0.27s;
+}
+.letter121:nth-child(11) {
+    transition-delay: 0.3s;
+}
+.letter121:nth-child(12) {
+    transition-delay: 0.33s;
+}

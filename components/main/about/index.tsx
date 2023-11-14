@@ -1,14 +1,10 @@
 import React from 'react';
-import styles from './styles.module.scss';
+import styles from './styles.module.scss'
 
 const About: React.FC = () => {
-    return (
-        <div className={styles.about}>
-            <div className={styles.about__container}>
-              <p>123</p>
-            </div>
-        </div>
-    );
-};
+  return (
+    <div>About</div>
+  )
+}
 
-export default About;
+export default About

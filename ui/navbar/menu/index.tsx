@@ -1,131 +1,114 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
+import Link from 'next/link';
+import styles from './styles.module.scss';
 import gsap from 'gsap';
 import CSSRulePlugin from 'gsap/dist/CSSRulePlugin';
-import SplitType from 'split-type';
-import styles from './styles.module.scss';
-import Link from 'next/link';
 import useWindowSize from '@/hooks/useWindowSize';
+import { links } from './data';
 
-export default function Menu() {
+const Menu: React.FC = () => {
     gsap.registerPlugin(CSSRulePlugin);
-    
+    const tl = useRef<gsap.core.Timeline | null>(null);
+
     const { width } = useWindowSize();
     const isMobile = width < 768;
 
+    const pathRef = useRef<SVGPathElement | null>(null);
+
+    const toggleBtnRef = useRef<HTMLDivElement | null>(null);
+    const menuSpanRef = useRef<HTMLSpanElement | null>(null);
+    const hamburgerRef = useRef<HTMLDivElement | null>(null);
+    const hamburgerSpanRef = useRef<HTMLSpanElement | null>(null);
+
+    const menuItemsRef = useRef<HTMLDivElement | null>(null);
     const toggleMenuRef = useRef<any>(null);
 
-    const menuSpanRef = useRef<HTMLSpanElement | null>(null);
-    const hamburgerSpanRef = useRef<HTMLSpanElement | null>(null);
-    const menuItemsRef = useRef<HTMLDivElement | null>(null);
-
-    const pathRef = useRef<SVGPathElement | null>(null);
-    const toggleBtnRef = useRef<HTMLDivElement | null>(null);
-    const hamburgerRef = useRef<HTMLDivElement | null>(null);
-
-    const homeLinkRef = useRef<HTMLAnchorElement | null>(null);
-    const aboutLinkRef = useRef<HTMLAnchorElement | null>(null);
-    const projectsLinkRef = useRef<HTMLAnchorElement | null>(null);
-
-    const links = [
-        { id: 1, label: 'home.', href: '/', ref: homeLinkRef },
-        { id: 2, label: 'about me.', href: '/about', ref: aboutLinkRef },
-        { id: 3, label: 'projects.', href: '/projects', ref: projectsLinkRef },
-    ];
-
     useEffect(() => {
-        const tl = gsap.timeline({ paused: true });
-
-        const text = new SplitType(homeLinkRef.current!, {
-            types: 'lines',
-        });
-        const text2 = new SplitType(aboutLinkRef.current!, {
-            types: 'lines',
-        });
-        const text3 = new SplitType(projectsLinkRef.current!, {
-            types: 'lines',
-        });
-
-        //toggle menu
+        tl.current = gsap.timeline({ paused: true });
 
         const showMenuItems = () => {
-            const start = 'M0 502S175 272 500 272s500 230 500 230V0H0Z';
-            const end = 'M0,1005S175,995,500,995s500,5,500,5V0H0Z';
+            if (tl.current) {
+                const start = 'M0 502S175 272 500 272s500 230 500 230V0H0Z';
+                const end = 'M0,1005S175,995,500,995s500,5,500,5V0H0Z';
 
-            tl.to(pathRef.current, {
-                attr: { d: start },
-                ease: 'power2.in',
-                duration: 1,
-            }).to(
-                pathRef.current,
+                tl.current
+                    .to(pathRef.current, {
+                        attr: { d: start },
+                        ease: 'power2.in',
+                        duration: 1,
+                    })
+                    .to(
+                        pathRef.current,
 
-                { attr: { d: end }, ease: 'power2.out', duration: 1 }
-            );
+                        { attr: { d: end }, ease: 'power2.out', duration: 1 }
+                    );
 
-            tl.to(
-                toggleBtnRef.current,
-                {
-                    border: '1px solid black',
-                    ease: 'power2.inOut',
-                    duration: 1,
-                },
-                '<'
-            );
+                tl.current.to(
+                    toggleBtnRef.current,
+                    {
+                        border: '1px solid black',
+                        ease: 'power2.inOut',
+                        duration: 1,
+                    },
+                    '<'
+                );
 
-            tl.to(
-                menuSpanRef.current,
-                {
-                    color: '#000',
-                    ease: 'power2.inOut',
-                    duration: 1,
-                },
-                '<'
-            );
+                tl.current.to(
+                    menuSpanRef.current,
+                    {
+                        color: '#000',
+                        ease: 'power2.inOut',
+                        duration: 1,
+                    },
+                    '<'
+                );
 
-            tl.to(
-                hamburgerRef.current,
-                {
-                    translateY: 0,
-                },
-                '<'
-            );
+                tl.current.to(
+                    hamburgerRef.current,
+                    {
+                        translateY: 0,
+                    },
+                    '<'
+                );
 
-            tl.to(
-                hamburgerSpanRef.current,
-                {
-                    background: 'black',
-                    ease: 'power2.inOut',
-                    duration: 1,
-                    rotation: 45,
-                    transform: 'rotate(45deg)',
-                },
-                '<'
-            );
+                tl.current.to(
+                    hamburgerSpanRef.current,
+                    {
+                        background: 'black',
+                        ease: 'power2.inOut',
+                        duration: 1,
+                        rotation: 45,
+                        transform: 'rotate(45deg)',
+                    },
+                    '<'
+                );
 
-            tl.to(
-                CSSRulePlugin.getRule('span#test::before'),
-                {
-                    background: 'black',
-                    ease: 'power2.inOut',
-                    duration: 1,
-                    top: 'unset',
-                    transform: 'rotate(-90deg)',
-                },
-                '<'
-            );
+                tl.current.to(
+                    CSSRulePlugin.getRule('span#test::before'),
+                    {
+                        background: 'black',
+                        ease: 'power2.inOut',
+                        duration: 1,
+                        top: 'unset',
+                        transform: 'rotate(-90deg)',
+                    },
+                    '<'
+                );
 
-            tl.to(
-                menuItemsRef.current,
-                {
-                    autoAlpha: 1,
-                    display: 'flex',
-                    duration: 1,
-                },
-                '<'
-            );
+                tl.current.to(
+                    menuItemsRef.current,
+                    {
+                        autoAlpha: 1,
+                        display: 'flex',
+                        duration: 1,
+                    },
+                    '<'
+                ).reverse();
 
-            tl.to('.doesnt-work-without-this-tl', {}).reverse();
+                // tl.current.to('.doesnt-work-without-this-tl', {}).reverse();
+            }
         };
 
         toggleMenuRef.current = () => {
@@ -133,9 +116,9 @@ export default function Menu() {
 
             if (toggleBtnRef.current) {
                 toggleBtnRef.current.onclick = function () {
-                    if (hamburgerRef.current) {
+                    if (hamburgerRef.current && tl.current) {
                         hamburgerRef.current.classList.toggle('active');
-                        tl.reversed(!tl.reversed());
+                        tl.current.reversed(!tl.current.reversed());
                         console.log(1);
                     }
                 };
@@ -143,33 +126,17 @@ export default function Menu() {
         };
 
         toggleMenuRef.current();
-
-        let elements = document.querySelectorAll('#text');
-
-        elements.forEach((element) => {
-            let innerText = (element as HTMLElement).innerText;
-            element.innerHTML = '';
-
-            let textContainer = document.createElement('div');
-            textContainer.classList.add(styles.block);
-
-            for (let letter of innerText) {
-                let span = document.createElement('span');
-                span.innerText = letter.trim() === '' ? '\xa0' : letter;
-                span.classList.add(styles.letter);
-                textContainer.appendChild(span);
-            }
-
-            element.appendChild(textContainer);
-            element.appendChild(textContainer.cloneNode(true));
-        });
-
-        elements.forEach((element) => {
-            element.addEventListener('mouseover', () => {
-                element.classList.remove('play');
-            });
-        });
     }, []);
+
+    const createLetterSpans = (text: string) => {
+        return text.split('').map((char, index) => (
+            <span
+                key={index}
+                className='letter121'>
+                {char.trim() === '' ? '\xa0' : char}
+            </span>
+        ));
+    };
 
     return (
         <>
@@ -210,19 +177,28 @@ export default function Menu() {
                 className={styles.menuItems}
                 ref={menuItemsRef}>
                 <div className={styles.menuContainer}>
-                    {links.map((link) => (
-                        <Link
-                            key={link.id}
-                            href={link.href}
-                            ref={link.ref}
-                            className={styles.text}
-                            id='text'
-                            onClick={() => toggleMenuRef.current()}>
-                            {link.label}
-                        </Link>
+                    {links.map((item, index) => (
+                        <div
+                            key={item.id}
+                            className='text121'>
+                            <Link
+                                href={item.href}
+                                className='block121'
+                                onClick={() => toggleMenuRef.current()}>
+                                {createLetterSpans(item.label)}
+                            </Link>
+                            <Link
+                                href={item.href}
+                                className='block121'
+                                onClick={() => toggleMenuRef.current()}>
+                                {createLetterSpans(item.label)}
+                            </Link>
+                        </div>
                     ))}
                 </div>
             </div>
         </>
     );
 }
+
+export default Menu;

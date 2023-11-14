@@ -23,7 +23,9 @@ const Time: React.FC = () => {
 
     return (
         <div className={styles.time}>
-            {formattedTime}
+            <div className={styles.time__container}>
+                <span>{formattedTime}</span>
+            </div>
         </div>
     );
 };
