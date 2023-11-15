@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Link from 'next/link';
 import styles from './styles.module.scss';
+import Link from 'next/link';
 import gsap from 'gsap';
 import CSSRulePlugin from 'gsap/dist/CSSRulePlugin';
 import useWindowSize from '@/hooks/useWindowSize';
@@ -14,6 +14,7 @@ const Menu: React.FC = () => {
 
     const { width } = useWindowSize();
     const isMobile = width < 768;
+    // const isMobile = width !== undefined && width < 768;
 
     const pathRef = useRef<SVGPathElement | null>(null);
 
@@ -78,7 +79,7 @@ const Menu: React.FC = () => {
                     {
                         background: 'black',
                         ease: 'power2.inOut',
-                        duration: 1,
+                        duration: 0.6,
                         rotation: 45,
                         transform: 'rotate(45deg)',
                     },
@@ -90,24 +91,24 @@ const Menu: React.FC = () => {
                     {
                         background: 'black',
                         ease: 'power2.inOut',
-                        duration: 1,
+                        duration: 0.6,
                         top: 'unset',
                         transform: 'rotate(-90deg)',
                     },
                     '<'
                 );
 
-                tl.current.to(
-                    menuItemsRef.current,
-                    {
-                        autoAlpha: 1,
-                        display: 'flex',
-                        duration: 1,
-                    },
-                    '<'
-                ).reverse();
-
-                // tl.current.to('.doesnt-work-without-this-tl', {}).reverse();
+                tl.current
+                    .to(
+                        menuItemsRef.current,
+                        {
+                            autoAlpha: 1,
+                            display: 'flex',
+                            duration: 1,
+                        },
+                        '<'
+                    )
+                    .reverse();
             }
         };
 
@@ -199,6 +200,6 @@ const Menu: React.FC = () => {
             </div>
         </>
     );
-}
+};
 
 export default Menu;
