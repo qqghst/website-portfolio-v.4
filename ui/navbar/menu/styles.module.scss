@@ -129,13 +129,13 @@
 }
 
 .block:last-child {
-    color: #9e1bf5;
+    display: block;
+    color: #f5771b;
 }
 
 .letter {
     display: inline-block;
     transition: transform 0.6s cubic-bezier(0.76, 0, 0.024, 1);
-
     &:nth-child(1) {
         transition-delay: 0s;
     }

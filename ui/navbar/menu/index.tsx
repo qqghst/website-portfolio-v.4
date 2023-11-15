@@ -132,7 +132,7 @@ const Menu: React.FC = () => {
         return text.split('').map((char, index) => (
             <span
                 key={index}
-                className='letter121'>
+                className={styles.letter}>
                 {char.trim() === '' ? '\xa0' : char}
             </span>
         ));
@@ -180,16 +180,16 @@ const Menu: React.FC = () => {
                     {links.map((item, index) => (
                         <div
                             key={item.id}
-                            className='text121'>
+                            className={styles.text}>
                             <Link
                                 href={item.href}
-                                className='block121'
+                                className={styles.block}
                                 onClick={() => toggleMenuRef.current()}>
                                 {createLetterSpans(item.label)}
                             </Link>
                             <Link
                                 href={item.href}
-                                className='block121'
+                                className={styles.block}
                                 onClick={() => toggleMenuRef.current()}>
                                 {createLetterSpans(item.label)}
                             </Link>
