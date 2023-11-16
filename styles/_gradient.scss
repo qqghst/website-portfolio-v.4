@@ -1,0 +1,29 @@
+.gradient {
+    animation: gradient-animation 2s linear infinite;
+    background: linear-gradient(to right, #672be5, #0067ff, #83b5ff, #672be5);
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    white-space: nowrap;
+    height: 6.375vw; //102px
+
+    transform: translate(1.131vw, -5.952vw); //19px -100px
+
+    @media (max-width: 768px) {
+        transform: translate(2.131vw, -5.952vw);
+    }
+
+    @keyframes gradient-animation {
+        from {
+            background-position: 0% center;
+        }
+
+        to {
+            background-position: -200% center;
+        }
+    }
+}
+

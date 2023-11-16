@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import styles from './styles.module.scss';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Masthead from '../masthead';
@@ -12,60 +11,71 @@ const Intro: React.FC = () => {
     gsap.registerPlugin(ScrollTrigger);
     const tl = useRef<gsap.core.Timeline | null>(null);
 
+    const containerRef = useRef<HTMLDivElement>(null);
+    const mastheadRef = useRef<HTMLDivElement>(null);
+    const whiteBgRef = useRef<HTMLDivElement>(null);
+    const aboutRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
+        if (!containerRef.current || !mastheadRef.current || !aboutRef.current)
+            return;
+
         tl.current = gsap.timeline({ delay: 1 });
 
         tl.current.fromTo(
-            '.heroContainer',
+            containerRef.current,
             {
                 backgroundColor: 'black',
             },
             {
+                duration: 1,
                 backgroundColor: 'white',
+                ease: 'power2.easeOut',
                 scrollTrigger: {
-                    trigger: '.firstSection',
-                    start: 'bottom +=300',
-                    end: '+=1000',
-                    scrub: true,
-                    markers: true
+                    trigger: mastheadRef.current,
+                    start: 'bottom center',
+                    // end: '+=1000',
+                    scrub: 1,
+                    // markers: true,
+                    // toggleActions: 'play reverse play reverse',
                 },
             }
         );
 
         tl.current.fromTo(
-            '.heroContainer',
+            containerRef.current,
             {},
             {
+                duration: 1,
                 backgroundColor: 'black',
-                duration: 0.1,
-                delay: 0.1,
+                ease: 'power2.easeOut',
                 scrollTrigger: {
-                    trigger: '.thirdSection',
-                    start: 'top center',
-                    end: '+=500',
-                    scrub: true,
-                    markers: true
+                    trigger: aboutRef.current,
+                    start: 'top bottom',
+                    // end: '+=500',
+                    scrub: 1,
+                    markers: true,
+                    // toggleActions: 'play reverse play reverse',
                 },
             }
         );
+
+        return () => {
+            tl.current?.kill();
+        };
     }, []);
     return (
-        // <div className={styles.intro}>
-        //     <div className={styles.intro__container}></div>
-        // </div>
-        <>
-            <section className='heroContainer'>
-                <div className='firstSection'>
-                    <Masthead />
-                </div>
-                <div className='secondSection'>
-                    <WhiteBg />
-                </div>
-                <div className='thirdSection'>
-                    <About />
-                </div>
-            </section>
-        </>
+        <div ref={containerRef}>
+            <div ref={mastheadRef}>
+                <Masthead />
+            </div>
+            <div ref={whiteBgRef}>
+                <WhiteBg />
+            </div>
+            <div ref={aboutRef}>
+                <About />
+            </div>
+        </div>
     );
 };
 

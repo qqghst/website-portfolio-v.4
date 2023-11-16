@@ -3,7 +3,7 @@
 .masthead {
     &__container {
         position: relative;
-        background-color: $color-black;
+        // background-color: $color-black;
         min-height: 100vh;
         min-width: 100vw;
 
@@ -26,7 +26,8 @@
 
         .scrollCircle {
             position: absolute;
-            transform: translateY(21.429vw); //360px
+            bottom: 8px;
+            // transform: translateY(11.429vw); //360px
 
             @media (max-width: 768px) {
                 transform: translateY(76.429vw);

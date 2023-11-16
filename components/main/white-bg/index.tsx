@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useEffect, useRef } from 'react';
 import styles from './styles.module.scss';
@@ -23,37 +23,41 @@ const WhiteBg: React.FC = () => {
                 scrollTrigger: {
                     trigger: h1Ref.current,
                     start: '-=400 center',
-                    scrub: true,
-                    markers: true,
+                    scrub: 1,
+                    // markers: true,
                 },
                 scale: 2,
             },
             '+=0.2'
         );
+
+        return () => {
+            tl.current?.kill();
+        };
     }, []);
+
     return (
         <div className={styles.whiteBg}>
             <div className={styles.whiteBg__container}>
                 <Image
-                    data-scroll-speed="20"
-                    ref={imgRef}
                     className={styles.image}
+                    ref={imgRef}
                     src='/white-bg/test.jpeg'
                     alt='1'
                     width={1400 / 2}
                     height={1400 / 2}
+                    data-scroll
+                    data-scroll-speed='0.8'
                 />
                 <h1
                     className={`${styles.title} h1`}
                     ref={h1Ref}>
-                    <span className={styles.gradient}>
-                        <Link
-                            href='/'
-                            target='_blank'
-                            rel='noopener noreferrer'>
-                            contact me
-                        </Link>
-                    </span>
+                    <Link
+                        href='/'
+                        target='_blank'
+                        rel='noopener noreferrer'>
+                        <span className='gradient'>contact me?</span>
+                    </Link>
                 </h1>
             </div>
         </div>

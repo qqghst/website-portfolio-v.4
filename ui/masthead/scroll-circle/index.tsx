@@ -6,13 +6,20 @@ import gsap from 'gsap';
 
 const ScrollCircle: React.FC = () => {
     const scrollCirleRef = useRef(null);
+    const tl = useRef<gsap.core.Timeline | null>(null);
 
     useEffect(() => {
-        gsap.fromTo(
+        tl.current = gsap.timeline();
+
+        tl.current.fromTo(
             scrollCirleRef.current,
             { opacity: 0 },
             { opacity: 1, duration: 2, delay: 2.2 }
         );
+
+        return () => {
+            tl.current?.kill();
+        };
     }, []);
     return (
         <button

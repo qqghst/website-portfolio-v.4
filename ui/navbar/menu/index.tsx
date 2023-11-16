@@ -127,6 +127,10 @@ const Menu: React.FC = () => {
         };
 
         toggleMenuRef.current();
+        
+        return () => {
+            tl.current?.kill();
+        };
     }, []);
 
     const createLetterSpans = (text: string) => {

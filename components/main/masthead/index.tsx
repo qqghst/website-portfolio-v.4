@@ -4,6 +4,7 @@ import Title from '@/ui/masthead/title';
 import ScrollCircle from '@/ui/masthead/scroll-circle';
 import s from '@/public/masthead/rainbow.svg';
 import Image from 'next/image';
+import ScrollCircle2 from '@/ui/masthead/scroll-circle2';
 
 const Masthead = () => {
     return (
@@ -17,7 +18,8 @@ const Masthead = () => {
                 </div>
                 <Title />
                 <div className={styles.scrollCircle}>
-                    <ScrollCircle />
+                    <ScrollCircle2 />
+                    {/* <ScrollCircle /> */}
                 </div>
             </div>
         </div>

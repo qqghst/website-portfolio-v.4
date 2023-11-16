@@ -37,7 +37,7 @@ const About: React.FC = () => {
                 trigger: firstSpan.current,
                 start: 'top center',
                 // once: true,
-                markers: true,
+                // markers: true,
                 toggleActions: 'play none none none',
             },
         });
@@ -47,7 +47,7 @@ const About: React.FC = () => {
                 trigger: buttonRef.current,
                 start: 'top center',
                 // once: true,
-                markers: true,
+                // markers: true,
                 toggleActions: 'play none none none',
             },
         });
@@ -74,11 +74,16 @@ const About: React.FC = () => {
                 stagger: 0.5,
             }
         );
+
+        return () => {
+            tl.current?.kill();
+            tl2.current?.kill();
+        };
     }, []);
     return (
         <div className={styles.about}>
             <div className={styles.about__container}>
-                <div>
+                <div className='translate-y-6'>
                     <div ref={buttonRef}>
                         <ButtonBorder type='button'>about me</ButtonBorder>
                     </div>
