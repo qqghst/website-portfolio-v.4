@@ -91,6 +91,8 @@ const Projects: React.FC = () => {
                                 projects.map((item, index) => (
                                     <Link
                                         href='/'
+                                        target="_blank"
+                                        rel='noopener noreferrer'
                                         key={item.id}>
                                         <ProjeectItem
                                             src={item.image}

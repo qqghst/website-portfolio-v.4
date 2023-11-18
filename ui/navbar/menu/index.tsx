@@ -52,6 +52,10 @@ const Menu: React.FC = () => {
                         border: '1px solid black',
                         ease: 'power2.inOut',
                         duration: 1,
+                        position: 'absolute',
+                        top: 0,
+                        right: 0,
+                        margin: '2.381vw',
                     },
                     '<'
                 );
@@ -127,7 +131,7 @@ const Menu: React.FC = () => {
         };
 
         toggleMenuRef.current();
-        
+
         return () => {
             tl.current?.kill();
         };

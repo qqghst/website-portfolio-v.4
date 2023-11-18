@@ -10,6 +10,9 @@ import TechStack from '@/components/main/tech-stack';
 import Intro from '@/components/main/intro';
 import { useEffect } from 'react';
 import Projects from '@/components/main/projects';
+import Outro from '@/components/main/outro';
+import Footer from '@/components/footer';
+import Music from '@/components/music';
 
 export default function Home() {
     useEffect(() => {
@@ -23,12 +26,7 @@ export default function Home() {
     return (
         <main className=''>
             <Intro />
-            <Projects />
-            <About />
-            {/* <Masthead />
-            <WhiteBg />
-            <About /> */}
-            {/* <TechStack /> */}
+            <Outro />
         </main>
     );
 }

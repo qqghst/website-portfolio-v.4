@@ -1,3 +1,4 @@
+@import '../../../styles/variables';
 //svg overlay
 .overlay {
     position: absolute;
@@ -8,7 +9,7 @@
     z-index: -1;
 
     svg path {
-        fill: white;
+        fill: $color-white;
     }
 }
 
@@ -18,10 +19,10 @@
     align-items: center;
     gap: 8px;
 
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 2.381vw; //40px
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // margin: 2.381vw; //40px
     z-index: 100000121212121;
 
     border: 1px solid white;

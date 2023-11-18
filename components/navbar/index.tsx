@@ -8,9 +8,9 @@ import Menu from '@/ui/navbar/menu';
 import gsap from 'gsap';
 
 const Navbar: React.FC = () => {
-    const logoRef = useRef(null);
-    const timeRef = useRef(null);
-    const menuRef = useRef(null);
+    const logoRef = useRef<HTMLDivElement>(null);
+    const timeRef = useRef<HTMLDivElement>(null);
+    const menuRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         gsap.fromTo(
             [logoRef.current, timeRef.current, menuRef.current],
@@ -29,6 +29,9 @@ const Navbar: React.FC = () => {
                     className='hide-on-mobile'
                     ref={timeRef}>
                     <Time />
+                </div>
+                <div className='opacity-0 hidden'>
+                    <span>Menu</span>
                 </div>
                 <div ref={menuRef}>
                     <Menu />
