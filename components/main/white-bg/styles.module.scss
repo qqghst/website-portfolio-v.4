@@ -3,7 +3,7 @@
 .whiteBg {
     &__container {
         // background-color: $color-white;
-        min-height: 100vh;
+        min-height: 150vh;
         width: 100%;
 
         display: flex;
@@ -17,5 +17,12 @@
 
     .title {
         position: absolute;
+    }
+
+    .questionMark {
+        position: absolute;
+        color: black;
+        font-size: 32px;
+        left: 16.146vw; //310px
     }
 }

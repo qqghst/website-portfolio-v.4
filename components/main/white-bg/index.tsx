@@ -59,6 +59,14 @@ const WhiteBg: React.FC = () => {
                         <span className='gradient'>contact me?</span>
                     </Link>
                 </h1>
+                <Link
+                    href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    data-scroll
+                    data-scroll-speed='0.1'>
+                    <span className={styles.questionMark}>🗿</span>
+                </Link>
             </div>
         </div>
     );

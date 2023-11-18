@@ -9,6 +9,7 @@ import TechStackItem from '@/ui/tech-stack/item';
 import TechStack from '@/components/main/tech-stack';
 import Intro from '@/components/main/intro';
 import { useEffect } from 'react';
+import Projects from '@/components/main/projects';
 
 export default function Home() {
     useEffect(() => {
@@ -22,6 +23,8 @@ export default function Home() {
     return (
         <main className=''>
             <Intro />
+            <Projects />
+            <About />
             {/* <Masthead />
             <WhiteBg />
             <About /> */}

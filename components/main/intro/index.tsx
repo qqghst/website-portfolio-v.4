@@ -30,7 +30,7 @@ const Intro: React.FC = () => {
             {
                 duration: 1,
                 backgroundColor: 'white',
-                ease: 'power2.easeOut',
+                ease: 'power2.out',
                 scrollTrigger: {
                     trigger: mastheadRef.current,
                     start: 'bottom center',
@@ -48,10 +48,10 @@ const Intro: React.FC = () => {
             {
                 duration: 1,
                 backgroundColor: 'black',
-                ease: 'power2.easeOut',
+                ease: 'power2.out',
                 scrollTrigger: {
                     trigger: aboutRef.current,
-                    start: 'top bottom',
+                    start: 'top-=200px bottom',
                     // end: '+=500',
                     scrub: 1,
                     markers: true,
