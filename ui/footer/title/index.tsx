@@ -21,7 +21,6 @@ const Title: React.FC = () => {
                 trigger: firstLineRef.current,
                 start: 'top center',
                 // once: true,
-                markers: true,
                 toggleActions: 'play none none none',
             },
         });

@@ -37,7 +37,6 @@ const About: React.FC = () => {
                 trigger: firstSpan.current,
                 start: 'top center',
                 // once: true,
-                // markers: true,
                 toggleActions: 'play none none none',
             },
         });
@@ -47,7 +46,6 @@ const About: React.FC = () => {
                 trigger: buttonRef.current,
                 start: 'top center',
                 // once: true,
-                // markers: true,
                 toggleActions: 'play none none none',
             },
         });

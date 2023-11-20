@@ -13,6 +13,7 @@ import Projects from '@/components/main/projects';
 import Outro from '@/components/main/outro';
 import Footer from '@/components/footer';
 import Music from '@/components/music';
+import TechStack2 from '@/components/main/tech-stack2';
 
 export default function Home() {
     useEffect(() => {
@@ -25,7 +26,13 @@ export default function Home() {
     }, []);
     return (
         <main className=''>
-            <Intro />
+            {/* <Intro /> */}
+            <About />
+            <div className='h-[300px] bg-black'></div>
+            <TechStack2 />
+             <div className='h-[300px] bg-black'></div>
+            <TechStack />
+
             <Outro />
         </main>
     );

@@ -8,15 +8,24 @@ import Menu from '@/ui/navbar/menu';
 import gsap from 'gsap';
 
 const Navbar: React.FC = () => {
+    const tl = useRef<gsap.core.Timeline | null>(null);
+
     const logoRef = useRef<HTMLDivElement>(null);
     const timeRef = useRef<HTMLDivElement>(null);
     const menuRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
-        gsap.fromTo(
+        tl.current = gsap.timeline();
+
+        tl.current.fromTo(
             [logoRef.current, timeRef.current, menuRef.current],
             { opacity: 0 },
-            { opacity: 1, duration: 1, delay: 3, stagger: 0.6 }
+            { opacity: 1, duration: 0.8, delay: 3, stagger: 0.6 }
         );
+
+        return () => {
+            tl.current?.kill();
+        };
     }, []);
 
     return (
@@ -29,9 +38,6 @@ const Navbar: React.FC = () => {
                     className='hide-on-mobile'
                     ref={timeRef}>
                     <Time />
-                </div>
-                <div className='opacity-0 hidden'>
-                    <span>Menu</span>
                 </div>
                 <div ref={menuRef}>
                     <Menu />

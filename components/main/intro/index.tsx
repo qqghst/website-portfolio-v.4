@@ -30,13 +30,12 @@ const Intro: React.FC = () => {
             {
                 duration: 1,
                 backgroundColor: 'white',
-                ease: 'power2.out',
+                ease: 'power3.out',
                 scrollTrigger: {
                     trigger: mastheadRef.current,
                     start: 'bottom center',
-                    // end: '+=1000',
+                    // end: '+=2000px',
                     scrub: 1,
-                    // markers: true,
                     // toggleActions: 'play reverse play reverse',
                 },
             }
@@ -54,7 +53,6 @@ const Intro: React.FC = () => {
                     start: 'top-=200px bottom',
                     // end: '+=500',
                     scrub: 1,
-                    markers: true,
                     // toggleActions: 'play reverse play reverse',
                 },
             }

@@ -24,7 +24,6 @@ const WhiteBg: React.FC = () => {
                     trigger: h1Ref.current,
                     start: '-=400 center',
                     scrub: 1,
-                    // markers: true,
                 },
                 scale: 2,
             },
