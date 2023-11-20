@@ -1,17 +1,16 @@
 @import '../../../styles/variables';
 
 .about {
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: $color-black;
+    background-color: $color-black;
     padding: 13.095vw 0; //220px 0
 
     &__container {
         // background-color: $color-black;
-        text-align: left; 
+        text-align: left;
 
-    
         div:nth-child(1) {
             display: flex;
             flex-direction: row;

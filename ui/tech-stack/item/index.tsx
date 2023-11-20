@@ -8,7 +8,7 @@ import Marquee from 'react-fast-marquee';
 import { ITechStackItemProps } from './interface';
 import img from '@/public/projects/1.png';
 
-const TechStackItem: React.FC<ITechStackItemProps> = ({ title, imageSrcs }) => {
+const TechStackItem: React.FC<ITechStackItemProps> = ({ title, tools }) => {
     gsap.registerPlugin(ScrollTrigger);
     const tl = useRef<gsap.core.Timeline | null>(null);
     const tl2 = useRef<gsap.core.Timeline | null>(null);
@@ -21,20 +21,13 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title, imageSrcs }) => {
     const imgRef = useRef<HTMLImageElement>(null);
     const techStackTextRef = useRef<HTMLDivElement>(null);
     const techStackImgRef = useRef(null);
+    const toolRefs = useRef(null);
 
     const [showTechStack, setShowTechStack] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
     const toggleTechStack = () => {
         setShowTechStack(!showTechStack);
-
-        // if (techStackTextRef.current) {
-        //     gsap.to(techStackTextRef.current, {
-        //         opacity: showTechStack ? 0 : 1,
-        //         duration: 1,
-        //         ease: 'power2.out',
-        //     });
-        // }
 
         if (imgRef.current) {
             gsap.to(imgRef.current, {
@@ -46,9 +39,8 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title, imageSrcs }) => {
 
         if (containerRef.current) {
             gsap.to(containerRef.current, {
-                // marginBottom: !showTechStack ? 100 : 0,
                 paddingBottom: !showTechStack ? 100 : 30,
-                // y: showTechStack ? 100 : 0,
+
                 duration: 0.5,
                 ease: 'power1.out',
             });
@@ -66,28 +58,6 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title, imageSrcs }) => {
             });
         }
     }, [showTechStack]);
-
-    useEffect(() => {
-        if (techStackTextRef.current && showTechStack) {
-            setTimeout(() => {
-                const images =
-                    techStackTextRef.current!.querySelectorAll('.img1');
-
-                gsap.fromTo(
-                    images,
-                    {
-                        opacity: 0,
-                    },
-                    {
-                        opacity: 1,
-                        duration: 1,
-                        ease: 'power2.out',
-                        stagger: 0.8,
-                    }
-                );
-            }, 0);
-        }
-    }, [showTechStack, imageSrcs]);
 
     useEffect(() => {
         const split = new SplitType(textRef.current, { types: 'lines' });
@@ -175,26 +145,16 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title, imageSrcs }) => {
                 <div
                     className={styles.techStackText}
                     ref={techStackTextRef}>
-                    <Marquee speed={100}>
-                        <div
-                            style={{
-                                width: '50vw',
-                                display: 'inline-block',
-                            }}></div>
-                        {imageSrcs.map((src, index) => (
-                            <div
+                    <ul className={styles.techStackTools}>
+                        {tools.map((item, index) => (
+                            <li
+                                ref={toolRefs}
                                 key={index}
-                                className={styles.imgwrapper}>
-                                <Image
-                                    className='img1'
-                                    src={src}
-                                    width={128 / 2}
-                                    height={128 / 2}
-                                    alt={title}
-                                />
-                            </div>
+                                className={`${styles.tools}`}>
+                                {item}
+                            </li>
                         ))}
-                    </Marquee>
+                    </ul>
                 </div>
             )}
         </div>

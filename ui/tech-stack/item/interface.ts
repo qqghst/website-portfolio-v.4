@@ -1,4 +1,4 @@
 export interface ITechStackItemProps {
     title: string;
-    imageSrcs: string[];
+    tools: string[];
 }
