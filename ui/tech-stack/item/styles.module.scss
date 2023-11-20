@@ -1,5 +1,7 @@
 .techStackItem {
+    position: relative;
     &__container {
+        cursor: pointer;
         padding-left: 160px;
         padding-right: 160px;
         padding-top: 30px;
@@ -11,6 +13,7 @@
         gap: 100px;
         border-top: 1px solid rgba(201, 201, 201, 0.154);
         border-bottom: 1px solid rgba(201, 201, 201, 0.154);
+        // position: relative;
 
         .scrollingText > span > div {
             background: linear-gradient(
@@ -60,4 +63,26 @@
     }
 }
 
+.techStackText {
+    width: 100%;
 
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: 32px; /* Adjust as needed */
+    // left: 160px;
+    color: white;
+    font-size: 32px;
+    z-index: 10;
+    opacity: 0;
+}
+
+.imgwrapper {
+    margin: 0 30px;
+
+
+    img {
+        width: 80%;
+        // opacity: 0;
+    }
+}
