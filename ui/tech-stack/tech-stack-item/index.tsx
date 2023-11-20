@@ -4,37 +4,34 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
+import { ITechStackItemProps } from './interface';
 
-interface ITechStackItemProps {
-    title: string;
-}
-
-const TechStack2Item: React.FC<ITechStackItemProps> = ({ title }) => {
+const TechStackItem: React.FC<ITechStackItemProps> = ({ title }) => {
     gsap.registerPlugin(ScrollTrigger);
     const tl = useRef<gsap.core.Timeline | null>(null);
     const tl2 = useRef<gsap.core.Timeline | null>(null);
 
-    const textRef = useRef<HTMLElement>(null);
-    const textRef1 = useRef<HTMLElement>(null);
-    const textRef2 = useRef<HTMLElement>(null);
+    const textRef = useRef<HTMLSpanElement>(null);
+    const textRef1 = useRef<HTMLSpanElement>(null);
+    const textRef2 = useRef<HTMLSpanElement>(null);
 
-    const spanRef = useRef(null);
-    const imgRef = useRef(null);
+    const spanRef = useRef<HTMLSpanElement>(null);
+    const imgRef = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
         const split = new SplitType(textRef.current, { types: 'lines' });
         const split2 = new SplitType(textRef1.current, { types: 'lines' });
         const split3 = new SplitType(textRef2.current, { types: 'lines' });
+
         const splits = [split, split2, split3];
 
         splits.forEach((split) => {
             tl.current = gsap.timeline({
                 scrollTrigger: {
-                    trigger: split.elements[0],
+                    trigger: textRef.current,
                     scrub: 0.9,
                     start: 'top center',
                     end: 'bottom center',
-                    markers: true,
                 },
             });
 
@@ -60,7 +57,6 @@ const TechStack2Item: React.FC<ITechStackItemProps> = ({ title }) => {
                 scrub: 0.03,
                 start: 'top center',
                 end: 'top top',
-                markers: true,
             },
         });
 
@@ -80,8 +76,8 @@ const TechStack2Item: React.FC<ITechStackItemProps> = ({ title }) => {
         };
     }, []);
     return (
-        <div className={styles.techStack2Item}>
-            <div className={styles.techStack2Item__container}>
+        <div className={styles.techStackItem}>
+            <div className={styles.techStackItem__container}>
                 <div className={styles.scrollingText}>
                     <span ref={textRef}>{title}</span>
                 </div>
@@ -99,4 +95,5 @@ const TechStack2Item: React.FC<ITechStackItemProps> = ({ title }) => {
     );
 };
 
-export default TechStack2Item;
+// export default TechStackItem;
+export default React.memo(TechStackItem);

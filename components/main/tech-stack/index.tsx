@@ -1,17 +1,17 @@
 import React from 'react';
-import styles from './styles.module.scss'
-import TechStackItem from '@/ui/tech-stack/item';
+import styles from './styles.module.scss';
+import Image from 'next/image';
+import TechStackItem from '@/ui/tech-stack/tech-stack-item';
 
 const TechStack: React.FC = () => {
-  return (
-    <div className={styles.techStack}>
-        <div className={styles.techStack__container}>
-            <TechStackItem key='1' number='01' title='FRONTEND.'/>
-            <TechStackItem key='2' number='02' title='WEB-DESIGN.'/>
-            <TechStackItem key='3' number='02' title='MOBILE DEV.'/>
+    return (
+        <div className={styles.techStack2}>
+            <TechStackItem title='Frontend.'/>
+            <TechStackItem title='Mobile app.'/>
+            <TechStackItem title='Animations.'/>
+            <TechStackItem title='Web-design.'/>
         </div>
-    </div>
-  )
-}
+    );
+};
 
-export default TechStack
+export default TechStack;

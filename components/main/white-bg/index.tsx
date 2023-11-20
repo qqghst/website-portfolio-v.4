@@ -71,4 +71,5 @@ const WhiteBg: React.FC = () => {
     );
 };
 
-export default WhiteBg;
+// export default WhiteBg;
+export default React.memo(WhiteBg);

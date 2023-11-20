@@ -46,4 +46,5 @@ const Outro: React.FC = () => {
     );
 };
 
-export default Outro;
+// export default Outro;
+export default React.memo(Outro);

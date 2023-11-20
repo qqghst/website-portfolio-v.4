@@ -5,15 +5,13 @@ import About from '@/components/main/about';
 import Image from 'next/image';
 import { PageWrapper } from '@/components/page-wrapper/page-wrapper';
 import WhiteBg from '@/components/main/white-bg';
-import TechStackItem from '@/ui/tech-stack/item';
-import TechStack from '@/components/main/tech-stack';
 import Intro from '@/components/main/intro';
 import { useEffect } from 'react';
 import Projects from '@/components/main/projects';
 import Outro from '@/components/main/outro';
 import Footer from '@/components/footer';
 import Music from '@/components/music';
-import TechStack2 from '@/components/main/tech-stack2';
+import TechStack from '@/components/main/tech-stack';
 
 export default function Home() {
     useEffect(() => {
@@ -26,12 +24,11 @@ export default function Home() {
     }, []);
     return (
         <main className=''>
-            {/* <Intro /> */}
-            <About />
-            <div className='h-[300px] bg-black'></div>
-            <TechStack2 />
-             <div className='h-[300px] bg-black'></div>
+            <Intro />
+            {/* <About /> */}
+            {/* <div className='h-[300px] bg-black'></div> */}
             <TechStack />
+            {/* <div className='h-[300px] bg-black'></div> */}
 
             <Outro />
         </main>
