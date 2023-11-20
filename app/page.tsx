@@ -24,13 +24,13 @@ export default function Home() {
     }, []);
     return (
         <main className=''>
-            <Intro />
+            {/* <Intro /> */}
             {/* <About /> */}
-            {/* <div className='h-[300px] bg-black'></div> */}
+            <div className='h-[900px] bg-black'></div>
             <TechStack />
-            {/* <div className='h-[300px] bg-black'></div> */}
+            <div className='h-[900px] bg-black'></div>
 
-            <Outro />
+            {/* <Outro /> */}
         </main>
     );
 }

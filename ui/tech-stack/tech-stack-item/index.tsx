@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './styles.module.scss';
 import Image from 'next/image';
 import gsap from 'gsap';
@@ -17,6 +17,30 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title }) => {
 
     const spanRef = useRef<HTMLSpanElement>(null);
     const imgRef = useRef<HTMLImageElement>(null);
+
+    const [showTechStack, setShowTechStack] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    const toggleTechStack = () => {
+        setShowTechStack(!showTechStack);
+
+        if (imgRef.current) {
+            gsap.to(imgRef.current, {
+                ease: 'power2.out',
+                duration: 0.6,
+                rotation: !showTechStack ? 180 : 0,
+            });
+        }
+
+        if (containerRef.current) {
+            gsap.to(containerRef.current, {
+                marginBottom: !showTechStack ? 100 : 0,
+                // y: showTechStack ? 100 : 0,
+                duration: 0.5,
+                ease: 'power1.out',
+            });
+        }
+    };
 
     useEffect(() => {
         const split = new SplitType(textRef.current, { types: 'lines' });
@@ -76,12 +100,20 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title }) => {
         };
     }, []);
     return (
-        <div className={styles.techStackItem}>
+        <div
+            className={styles.techStackItem}
+            onClick={toggleTechStack}
+            ref={containerRef}>
             <div className={styles.techStackItem__container}>
                 <div className={styles.scrollingText}>
                     <span ref={textRef}>{title}</span>
                 </div>
-                <span ref={spanRef}>click me to see tech stack?</span>
+                <span ref={spanRef}>
+                    {' '}
+                    {showTechStack
+                        ? 'click me to close tech stack'
+                        : 'click me to see tech stack'}
+                </span>
                 <Image
                     ref={imgRef}
                     className={styles.arrow}
