@@ -12,6 +12,7 @@ import Outro from '@/components/main/outro';
 import Footer from '@/components/footer';
 import Music from '@/components/music';
 import TechStack from '@/components/main/tech-stack';
+import About2 from '@/components/main/about2';
 
 export default function Home() {
     useEffect(() => {
@@ -24,13 +25,14 @@ export default function Home() {
     }, []);
     return (
         <main className=''>
-            {/* <Intro /> */}
-            <About />
-            <div className='h-[900px] bg-black'></div>
+            <Intro />
+            {/* <About /> */}
+            {/* <About2 /> */}
+            {/* <div className='h-[900px] bg-black'></div> */}
             <TechStack />
-            <div className='h-[900px] bg-black'></div>
+            {/* <div className='h-[900px] bg-black'></div> */}
 
-            {/* <Outro /> */}
+            <Outro />
         </main>
     );
 }

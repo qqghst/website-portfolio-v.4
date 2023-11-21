@@ -6,6 +6,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Masthead from '../masthead';
 import WhiteBg from '../white-bg';
 import About from '../about';
+import About2 from '../about2';
 
 const Intro: React.FC = () => {
     gsap.registerPlugin(ScrollTrigger);
@@ -71,7 +72,7 @@ const Intro: React.FC = () => {
                 <WhiteBg />
             </div>
             <div ref={aboutRef}>
-                <About />
+                <About2 />
             </div>
         </div>
     );
