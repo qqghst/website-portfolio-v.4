@@ -14,19 +14,19 @@ const Navbar: React.FC = () => {
     const timeRef = useRef<HTMLDivElement>(null);
     const menuRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        tl.current = gsap.timeline();
+    // useEffect(() => {
+    //     tl.current = gsap.timeline();
 
-        tl.current.fromTo(
-            [logoRef.current, timeRef.current, menuRef.current],
-            { opacity: 0 },
-            { opacity: 1, duration: 0.8, delay: 3, stagger: 0.6 }
-        );
+    //     tl.current.fromTo(
+    //         [logoRef.current, timeRef.current, menuRef.current],
+    //         { opacity: 0 },
+    //         { opacity: 1, duration: 0.8, delay: 3, stagger: 0.6 }
+    //     );
 
-        return () => {
-            tl.current?.kill();
-        };
-    }, []);
+    //     return () => {
+    //         tl.current?.kill();
+    //     };
+    // }, []);
 
     return (
         <div className={styles.navbar}>

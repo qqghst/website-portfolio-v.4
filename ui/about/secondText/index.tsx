@@ -6,11 +6,8 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
 import ButtonBorder from '@/ui/button-border';
-import FirstText from '@/ui/about/firstText';
-import SecondText from '@/ui/about/secondText';
-import BigText from '@/ui/about/bigText';
 
-const About2: React.FC = () => {
+const SecondText: React.FC = () => {
     gsap.registerPlugin(ScrollTrigger);
     const tl = useRef<gsap.core.Timeline | null>(null);
 
@@ -48,14 +45,22 @@ const About2: React.FC = () => {
     }, []);
     return (
         <div className={`${styles.secondText}`}>
-            <div className={styles.seconeText__container}>
-                    <FirstText />
-                    <SecondText />
-                    <BigText />
+            <div
+                ref={textRef}
+                className={styles.secondText__container}>
+                I create a <span>stylish websites</span> with
+                <span>beautiful visuals, </span>
+                <span
+                    className={`${styles.hero} ${styles.layers} ${styles.glitch}  text-white`}
+                    data-text='animations'>
+                    <span>animations</span>
+                </span>
+                <span className='italic'>, fonts</span>
+                and so on that makes wow effect.
             </div>
         </div>
     );
 };
 
 // export default About;
-export default React.memo(About2);
+export default React.memo(SecondText);

@@ -1,28 +1,27 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import Title from '@/ui/masthead/title';
-import ScrollCircle from '@/ui/masthead/scroll-circle';
-import s from '@/public/masthead/rainbow.svg';
 import Image from 'next/image';
-import ScrollCircle2 from '@/ui/masthead/scroll-circle2';
+import Link from 'next/link';
+import Title from '@/ui/masthead/title';
 import MouseBlur from '@/ui/mouse-blur';
+import MobileButton from '@/ui/masthead/mobileButton';
 
 const Masthead = () => {
     return (
         <MouseBlur>
             <div className={styles.masthead}>
                 <div className={styles.masthead__container}>
-                    <div className={styles.svg}>
+                    <Title />
+                    {/* <div className={styles.svg}>
                         <Image
-                            src={s}
+                            src='/masthead/rainbow.svg'
+                            width={0}
+                            height={0}
                             alt='svg'
                         />
-                    </div>
-                    <Title />
-                    <div className={styles.scrollCircle}>
-                        <ScrollCircle2 />
-                        {/* <ScrollCircle /> */}
-                    </div>
+                    </div> */}
+
+                    <MobileButton />
                 </div>
             </div>
         </MouseBlur>

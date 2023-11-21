@@ -8,13 +8,13 @@
     background-clip: text;
 
     white-space: nowrap;
-    height: 6.375vw; //102px
+    // height: 6.375vw; //102px
 
-    transform: translate(1.131vw, -5.952vw); //19px -100px
+    // transform: translate(1.131vw, -5.952vw); //19px -100px
 
-    @media (max-width: 768px) {
-        transform: translate(2.131vw, -5.952vw);
-    }
+    // @media (max-width: 768px) {
+    //     transform: translate(2.131vw, -5.952vw);
+    // }
 
     @keyframes gradient-animation {
         from {

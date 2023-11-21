@@ -18,9 +18,9 @@ const ProjeectItem: React.FC<IProjectsItemProps> = ({
                                 className={styles.img}
                                 src={src}
                                 alt={`${title} - ${description}`}
-                                layout='responsive'
-                                width={1800 / 2}
-                                height={1200 / 2}
+                                // layout='responsive'
+                                width={800 / 2}
+                                height={200 / 2}
                             />
                         </figure>
                     </div>

@@ -4,6 +4,7 @@ import '@/styles/main.scss';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import { ScrollBlockProvider } from '@/hooks/useBlockScroll';
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 

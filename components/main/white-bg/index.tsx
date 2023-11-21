@@ -25,9 +25,9 @@ const WhiteBg: React.FC = () => {
                     start: '-=400 center',
                     scrub: 1,
                 },
-                scale: 2,
-            },
-            '+=0.2'
+                scale: 4,
+            }
+            // '+=0.2'
         );
 
         return () => {
@@ -46,7 +46,7 @@ const WhiteBg: React.FC = () => {
                     width={1400 / 2}
                     height={1400 / 2}
                     data-scroll
-                    data-scroll-speed='0.8'
+                    data-scroll-speed='1.4'
                 />
                 <h1
                     className={`${styles.title} h1`}
@@ -63,7 +63,7 @@ const WhiteBg: React.FC = () => {
                     target='_blank'
                     rel='noopener noreferrer'
                     data-scroll
-                    data-scroll-speed='0.1'>
+                    data-scroll-speed='1.2'>
                     <span className={styles.questionMark}>🗿</span>
                 </Link>
             </div>

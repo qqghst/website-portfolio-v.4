@@ -1,44 +1,18 @@
 .margin2 {
-    margin-right: 8.143vw;
-
-    @media (max-width: 768px) {
-        margin-right: 11.143vw;
-    }
+    margin-right: 7.938vw; //127px, 1600
 }
 
 .margin3 {
-    margin-right: 14.143vw;
-
-    @media (max-width: 768px) {
-        margin-right: 21.143vw;
-    }
+    margin-right: 15.25vw; //244px, 1600
 }
 
-.gradient {
-    animation: gradient-animation 2s linear infinite;
-    background: linear-gradient(to right, #672be5, #0067ff, #83b5ff, #672be5);
-    background-size: 200%;
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-
-    white-space: nowrap;
-    height: 6.375vw; //102px
-
-    transform: translate(1.131vw, -5.952vw); //19px -100px
+.scrolling {
+    position: absolute;
+    transform: translateY(6.5vw); //104px, 1600
+    left: 38.063vw; //609px, 1600
 
     @media (max-width: 768px) {
-        transform: translate(2.131vw, -5.952vw);
-    }
-
-    @keyframes gradient-animation {
-        from {
-            background-position: 0% center;
-        }
-
-        to {
-            background-position: -200% center;
-        }
+        transform: translateY(-43.72vw); //-181px, 414
+        left: 28.744vw; //119px, 414
     }
 }

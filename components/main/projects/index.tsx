@@ -29,8 +29,8 @@ const Projects: React.FC = () => {
             span.chars,
             { opacity: 0, y: 100, scale: 0.8 },
             {
-                // y: 0,
-                y: (i) => -20 + i * 5,
+                y: 0,
+                // y: (i) => -20 + i * 5,
                 opacity: 0.6,
                 duration: 2.4,
                 stagger: 0.12,

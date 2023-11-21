@@ -25,36 +25,60 @@ const Intro: React.FC = () => {
 
         tl.current.fromTo(
             containerRef.current,
+            // {
+            //     backgroundColor: 'black',
+            // },
+            // {
+            //     duration: 1,
+            //     backgroundColor: 'white',
+            //     ease: 'power3.out',
+            //     scrollTrigger: {
+            //         trigger: mastheadRef.current,
+            //         start: 'bottom center',
+            //         // end: '+=2000px',
+            //         scrub: 1,
+            //         // toggleActions: 'play reverse play reverse',
+            //     },
+            // }
             {
                 backgroundColor: 'black',
             },
             {
-                duration: 1,
                 backgroundColor: 'white',
-                ease: 'power3.out',
                 scrollTrigger: {
                     trigger: mastheadRef.current,
-                    start: 'bottom center',
-                    // end: '+=2000px',
-                    scrub: 1,
-                    // toggleActions: 'play reverse play reverse',
+                    start: 'bottom +=300',
+                    end: '+=1000',
+                    scrub: true,
                 },
             }
         );
 
         tl.current.fromTo(
             containerRef.current,
+            // {},
+            // {
+            //     duration: 1,
+            //     backgroundColor: 'black',
+            //     ease: 'power2.out',
+            //     scrollTrigger: {
+            //         trigger: aboutRef.current,
+            //         start: 'top-=200px bottom',
+            //         // end: '+=500',
+            //         scrub: 1,
+            //         // toggleActions: 'play reverse play reverse',
+            //     },
+            // }
             {},
             {
-                duration: 1,
                 backgroundColor: 'black',
-                ease: 'power2.out',
+                duration: 0.1,
+                delay: 0.1,
                 scrollTrigger: {
                     trigger: aboutRef.current,
-                    start: 'top-=200px bottom',
-                    // end: '+=500',
-                    scrub: 1,
-                    // toggleActions: 'play reverse play reverse',
+                    start: 'top center',
+                    end: '+=500',
+                    scrub: true,
                 },
             }
         );

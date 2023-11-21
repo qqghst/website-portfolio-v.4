@@ -13,6 +13,8 @@ import Footer from '@/components/footer';
 import Music from '@/components/music';
 import TechStack from '@/components/main/tech-stack';
 import About2 from '@/components/main/about2';
+import FirstText from '@/ui/about/firstText';
+import BigText from '@/ui/about/bigText';
 
 export default function Home() {
     useEffect(() => {
@@ -25,14 +27,17 @@ export default function Home() {
     }, []);
     return (
         <main className=''>
-            <Intro />
-            {/* <About /> */}
+            {/* <div className='h-[900px] bg-red-700'></div> */}
+            <Masthead />
+            <div className='h-[900px] bg-green-700'></div>
+            {/* <Intro /> */}
+            {/* <BigText /> */}
+            {/* <FirstText /> */}
             {/* <About2 /> */}
-            {/* <div className='h-[900px] bg-black'></div> */}
-            <TechStack />
-            {/* <div className='h-[900px] bg-black'></div> */}
+            {/* <About /> */}
+            {/* <TechStack /> */}
 
-            <Outro />
+            {/* <Outro /> */}
         </main>
     );
 }

@@ -1,6 +1,6 @@
 .scrollContainer {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,14 +9,14 @@
 
     .btnOutline {
         position: absolute;
-        width: 180px;
-        height: 180px;
+        width: 160px;
+        height: 160px;
         border: 1px solid #9575cd64;
     }
 
     .btnOutline1 {
         border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        animation: morph 8s linear infinite;
+        animation: morph 4s linear infinite;
     }
 
     .btnOutline2 {

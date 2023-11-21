@@ -7,7 +7,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
 
 const Title: React.FC = () => {
-    gsap.registerPlugin(ScrollTrigger);
     const tl = useRef<gsap.core.Timeline | null>(null);
 
     const firstLineRef = useRef<HTMLSpanElement | null>(null);
@@ -16,6 +15,7 @@ const Title: React.FC = () => {
     const gradientRef = useRef<HTMLSpanElement | null>(null);
 
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
         tl.current = gsap.timeline();
 
         const span1 = new SplitType(firstLineRef.current!, {
@@ -31,53 +31,6 @@ const Title: React.FC = () => {
             lineClass: 'lineParent',
         });
 
-        // tl.current.fromTo(
-        //     span1.chars,
-        //     {
-        //         opacity: 0,
-        //         y: 32,
-        //     },
-        //     {
-        //         duration: 0.8,
-        //         opacity: 1,
-        //         y: 0,
-        //         stagger: 0.04,
-        //         ease: 'power3.out',
-        //     }
-        // );
-
-        // tl.current.fromTo(
-        //     span2.chars,
-        //     {
-        //         opacity: 0,
-        //         y: 32,
-        //         delay: 8,
-        //     },
-        //     {
-        //         duration: 0.8,
-        //         opacity: 1,
-        //         y: 0,
-        //         stagger: 0.04,
-        //         ease: 'power3.out',
-        //         delay: '-0.8',
-        //     }
-        // );
-
-        // tl.current.fromTo(
-        //     span3.chars,
-        //     {
-        //         opacity: 0,
-        //         y: 32,
-        //     },
-        //     {
-        //         duration: 0.8,
-        //         opacity: 1,
-        //         y: 0,
-        //         stagger: 0.04,
-        //         ease: 'power3.out',
-        //         delay: '-0.8',
-        //     }
-        // );
         tl.current.fromTo(
             [span1.chars, span2.chars, span3.chars],
             { opacity: 0, y: 32 },
@@ -85,15 +38,10 @@ const Title: React.FC = () => {
                 duration: 0.8,
                 opacity: 1,
                 y: 0,
-                stagger: {
-                    each: 0.04,
-                    amount: 1.6, 
-                    // start: 0.8, 
-                },
+                stagger: 0.04,
                 ease: 'power3.out',
             }
         );
-        
 
         tl.current.fromTo(
             gradientRef.current,
@@ -155,26 +103,24 @@ const Title: React.FC = () => {
     return (
         <>
             <span
-                className='h1'
-                ref={firstLineRef}>
+                ref={firstLineRef}
+                className='h1'>
                 this is a catchy title
             </span>
-            <br />
             <span
-                className={`${styles.margin2} h1`}
-                ref={secondLineRef}>
+                ref={secondLineRef}
+                className={`h1 ${styles.margin2}`}>
                 all the fun below
             </span>
-            <br />
             <span
-                className={`${styles.margin3} h1`}
-                ref={thirdLineRef}>
-                keep <span style={{ opacity: 0 }}>scrolling</span>
+                ref={thirdLineRef}
+                className={`h1 ${styles.margin3}`}>
+                keep <span style={{ opacity: 1 }}>scrolling</span>
             </span>
             <span
-                className={`${styles.gradient} h1`}
-                ref={gradientRef}>
-                &nbsp; scrolling.
+                ref={gradientRef}
+                className={`${styles.scrolling} h1 gradient`}>
+                scrolling.
             </span>
         </>
     );
