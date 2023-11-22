@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styles from './styles.module.scss';
 import Link from 'next/link';
 import gsap from 'gsap';
+import MobileArrow from '../mobile-arrow';
 
 const MobileButton: React.FC = () => {
     const tl = useRef<gsap.core.Timeline | null>(null);
@@ -26,12 +27,13 @@ const MobileButton: React.FC = () => {
             ref={mobileButtonRef}
             className={`hide-on-desktop ${styles.mobileButton}`}>
             <Link
-                href='/'
+                href='https://t.me/qqghstk'
                 target='_blank'
                 rel='noopener noreferrer'>
-                <span className={`h1 ${styles.l}`}>
-                    contact me &nbsp; &rarr;
-                </span>
+                <span className='h1'>contact me</span>
+                <div className={`${styles.arrow}`}>
+                    <MobileArrow />
+                </div>
             </Link>
         </div>
     );

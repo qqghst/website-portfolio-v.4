@@ -115,11 +115,11 @@ const Title: React.FC = () => {
             <span
                 ref={thirdLineRef}
                 className={`h1 ${styles.margin3}`}>
-                keep <span style={{ opacity: 1 }}>scrolling</span>
+                keep <span style={{ opacity: 0 }}>scrolling</span>
             </span>
             <span
                 ref={gradientRef}
-                className={`${styles.scrolling} h1 gradient`}>
+                className={`h1 gradient ${styles.scrolling}`}>
                 scrolling.
             </span>
         </>

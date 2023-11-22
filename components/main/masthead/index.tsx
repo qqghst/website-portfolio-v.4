@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import Image from 'next/image';
-import Link from 'next/link';
 import Title from '@/ui/masthead/title';
-import MouseBlur from '@/ui/mouse-blur';
-import MobileButton from '@/ui/masthead/mobileButton';
+
+import MobileButton from '@/ui/masthead/mobile-button';
+import MouseBlur from '@/ui/masthead/mouse-blur';
 
 const Masthead = () => {
     return (
@@ -12,15 +12,14 @@ const Masthead = () => {
             <div className={styles.masthead}>
                 <div className={styles.masthead__container}>
                     <Title />
-                    {/* <div className={styles.svg}>
+                    <div className={`hide-on-mobile ${styles.svg}`}>
                         <Image
                             src='/masthead/rainbow.svg'
                             width={0}
                             height={0}
                             alt='svg'
                         />
-                    </div> */}
-
+                    </div>
                     <MobileButton />
                 </div>
             </div>

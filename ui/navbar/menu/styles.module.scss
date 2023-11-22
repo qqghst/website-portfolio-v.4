@@ -19,13 +19,13 @@
     align-items: center;
     gap: 8px;
 
-    // position: absolute;
-    // top: 0;
-    // right: 0;
-    // margin: 2.381vw; //40px
-    z-index: 100000121212121;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2.381vw; //40px
+    z-index: 10000;
 
-    border: 1px solid white;
+    border: 1px solid $color-white;
     padding: 6px 20px;
     border-radius: 28px;
 
@@ -36,7 +36,7 @@
 
         span {
             font-size: 16px;
-            color: white;
+            color: $color-white;
         }
     }
 
@@ -53,7 +53,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: #ffffff;
+            background: $color-white;
             transition: transform 0.25s;
 
             // &::before {
@@ -83,20 +83,19 @@
 
 //menu-items
 .menuItems {
-    display: flex;
+    display: none;
     width: 100vw;
     height: 100vh;
-    opacity: 0;
     overflow: hidden;
-    display: none;
     z-index: 1110;
+    opacity: 0;
 
     .menuContainer {
-        width: 75%;
+        // width: 75%;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-left: 13.646vw; //282px
+        margin-left: 12.976vw; //218px, 1680
         align-items: flex-start;
         z-index: 1000;
         overflow: hidden;
@@ -106,19 +105,13 @@
         }
 
         .text {
-            text-decoration: none;
-            font-size: 5.897vw; //99.07px
-            line-height: 140px;
-            color: #222222;
-            font-weight: 700;
-            height: 140px;
+            color: $color-black;
+            height: 7.143vw; //120px, 1680
             overflow: hidden;
-            top: 120px;
 
             @media (max-width: 768px) {
-                font-size: 9.616vw; //39.81px
-                height: 90px;
-                top: 0;
+                height: 60px;
+                line-height: 60px;
             }
         }
     }
@@ -131,7 +124,7 @@
 
 .block:last-child {
     display: block;
-    color: #f5771b;
+    color: $gradient-second;
 }
 
 .letter {

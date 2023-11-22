@@ -49,13 +49,13 @@ const Menu: React.FC = () => {
                 tl.current.to(
                     toggleBtnRef.current,
                     {
-                        border: '1px solid black',
+                        border: '1px solid #000',
                         ease: 'power2.inOut',
                         duration: 1,
-                        position: 'absolute',
-                        top: 0,
-                        right: 0,
-                        margin: '2.381vw',
+                        // position: 'absolute',
+                        // top: 0,
+                        // right: 0,
+                        // margin: '2.381vw',
                     },
                     '<'
                 );
@@ -81,7 +81,7 @@ const Menu: React.FC = () => {
                 tl.current.to(
                     hamburgerSpanRef.current,
                     {
-                        background: 'black',
+                        background: '#000',
                         ease: 'power2.inOut',
                         duration: 0.6,
                         rotation: 45,
@@ -93,7 +93,7 @@ const Menu: React.FC = () => {
                 tl.current.to(
                     CSSRulePlugin.getRule('span#test::before'),
                     {
-                        background: 'black',
+                        background: '#000',
                         ease: 'power2.inOut',
                         duration: 0.6,
                         top: 'unset',
@@ -189,7 +189,7 @@ const Menu: React.FC = () => {
                     {links.map((item, index) => (
                         <div
                             key={item.id}
-                            className={styles.text}>
+                            className={`h1 ${styles.text}`}>
                             <Link
                                 href={item.href}
                                 className={styles.block}

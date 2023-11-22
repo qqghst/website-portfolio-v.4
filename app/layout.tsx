@@ -4,7 +4,6 @@ import '@/styles/main.scss';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 import { ScrollBlockProvider } from '@/hooks/useBlockScroll';
-import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,7 +20,7 @@ export default function RootLayout({
     return (
         <html lang='en'>
             <body className={inter.className}>
-                {/* <Navbar /> */}
+                <Navbar />
                 {children}
                 {/* <Footer /> */}
             </body>

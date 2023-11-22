@@ -29,7 +29,7 @@ export default function Home() {
         <main className=''>
             {/* <div className='h-[900px] bg-red-700'></div> */}
             <Masthead />
-            <div className='h-[900px] bg-green-700'></div>
+            {/* <div className='h-[900px] bg-green-700'></div> */}
             {/* <Intro /> */}
             {/* <BigText /> */}
             {/* <FirstText /> */}

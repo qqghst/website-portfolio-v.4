@@ -4,9 +4,9 @@
     &__container {
         min-height: 100vh;
         min-width: 100vw;
-        position: relative;
         background-color: $color-black;
         overflow-x: hidden;
+        position: relative;
 
         display: flex;
         flex-direction: column;
@@ -18,6 +18,7 @@
             height: 100vh;
             position: absolute;
             overflow: hidden;
+            z-index: 0;
 
             svg,
             img {
@@ -37,21 +38,22 @@
         &__container {
             min-height: 100vh;
             min-width: 100vw;
-            position: relative;
             background-color: $color-black;
             overflow-x: hidden;
+            position: relative;
 
             display: flex;
             flex-direction: column;
             justify-content: end;
             align-items: start;
-            padding: 0 20px;
+            padding: 0 4.831vw; //0 20px, 414
 
             .svg {
                 width: 100%;
                 height: 100vh;
                 position: absolute;
                 overflow: hidden;
+                z-index: 0;
 
                 svg,
                 img {
@@ -63,8 +65,6 @@
                     transform: translate(-50%, -50%);
                 }
             }
-
-         
         }
     }
 }
