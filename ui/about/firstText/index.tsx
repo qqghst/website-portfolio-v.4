@@ -7,13 +7,13 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
 
 const FirstText: React.FC = () => {
-    gsap.registerPlugin(ScrollTrigger);
     const tl = useRef<gsap.core.Timeline | null>(null);
 
     const firstTextRef = useRef<HTMLDivElement>(null);
     const secondTextRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
         tl.current = gsap.timeline({});
 
         tl.current.fromTo(
@@ -28,8 +28,10 @@ const FirstText: React.FC = () => {
                 stagger: 0.04,
                 scrollTrigger: {
                     trigger: firstTextRef.current,
-                    start: 'top 90%',
-                    scrub: true,
+                    // start: 'top 90%',
+                    start: 'top bottom',
+                    scrub: 1,
+                    // markers: true,
                 },
             }
         );
@@ -45,38 +47,43 @@ const FirstText: React.FC = () => {
                 stagger: 0.04,
                 scrollTrigger: {
                     trigger: secondTextRef.current,
-                    start: 'top 90%',
-                    scrub: true,
+                    // start: 'top 90%',
+                    start: 'top bottom',
+                    scrub: 1,
+                    markers: true,
                 },
             },
             '<'
         );
 
         return () => {
-            tl.current?.kill()
-        }
+            tl.current?.kill();
+        };
     }, []);
     return (
         <div className={styles.firstText}>
             <div className={styles.firstText__container}>
                 <div ref={firstTextRef}>
-                    <h3>Small chip. Giant leap.</h3>
-                    <p>
-                        M1 is our first chip designed specifically for Mac.
-                        Apple silicon integrates the CPU, GPU, Neural Engine,
-                        I/O, and so much more onto a single tiny chip. Packed
-                        with an astonishing 16 billion transistors, M1 delivers
-                        exceptional performance, custom technologies, and
-                        unbelievable power efficiency — a major breakthrough for
-                        Mac.
+                    <h3 className='h2'>
+                        Hello mate. <br className='hide-on-desktop' /> Guero
+                        solo.
+                    </h3>
+
+                    <p className='h4'>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Exercitationem assumenda velit in doloribus ex
+                        eius alias ducimus eum accusantium ipsa. Vitae adipisci
+                        obcaecati, blanditiis nisi maiores neque et quas ut!
+                        Vitae adipisci obcaecati, blanditiis nisi maiores neque
+                        et quas ut, blanditiis nisi maiores 
                     </p>
                 </div>
                 <div ref={secondTextRef}>
-                    <p className='text-[28px] text-white font-normal'>
+                    <p className='h5'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Nemo ipsam modi dicta repellendus harum? Sequi esse
-                        facere, odio quod voluptas asperiores numquam eligendi
-                        totam facilis rerum, error, cupiditate officia aut.
+                        facere, odio quod voluptas asperioressdadas
+                        adasdjaskdjask
                     </p>
                 </div>
             </div>

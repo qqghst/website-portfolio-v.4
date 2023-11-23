@@ -7,7 +7,6 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
 
 const BigText: React.FC = () => {
-    gsap.registerPlugin(ScrollTrigger);
     const tl = useRef<gsap.core.Timeline | null>(null);
 
     const textRef = useRef<HTMLParagraphElement>(null);
@@ -16,6 +15,7 @@ const BigText: React.FC = () => {
         if (!textRef.current) {
             return;
         }
+        gsap.registerPlugin(ScrollTrigger);
         tl.current = gsap.timeline();
 
         const split = new SplitType(textRef.current, { types: 'lines' });
@@ -51,11 +51,13 @@ const BigText: React.FC = () => {
     return (
         <div className={styles.bigText}>
             <div className={styles.bigText__container}>
-                <div className={styles.scrollingText}>
-                    <p ref={textRef}>
+                <div className='scrolling-text'>
+                    <span
+                        ref={textRef}
+                        className='bigText'>
                         Feel free to contact me, we&apos;ll discuss your future
                         site from design to deployment. Currently free for work.
-                    </p>
+                    </span>
                 </div>
             </div>
         </div>

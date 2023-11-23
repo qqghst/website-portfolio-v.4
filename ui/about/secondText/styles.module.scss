@@ -1,22 +1,47 @@
 @import '../../../styles/variables';
 
 .secondText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // background-color: $color-black;
-    padding: 13.095vw 64px; //220px 0
-
     &__container {
-        font-size: 6.192rem;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.250);
-        letter-spacing: -7px;
-        line-height: 100%;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: start;
 
-        span {
-            color: $color-white;
+        background-color: $color-black;
+        padding: 13.095vw 64px; //220px 0
+
+        .textContainer {
+            white-space: nowrap;
+            span {
+                color: $color-white;
+            }
+
+            .numbers {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .secondText {
+        &__container {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+
+            background-color: $color-black;
+            padding: 0vw 4.831vw; //0 20px
+
+            .textContainer {
+                white-space: normal;
+                span {
+                    color: $color-white;
+                }
+            }
+
+            .numbers {
+                display: none;
+            }
         }
     }
 }
@@ -36,6 +61,13 @@
         position: absolute;
         width: 110%;
         z-index: -1;
+        opacity: 0;
+        animation: fadeIn 0.5s ease-out 3s forwards;
+
+        @media (max-width: 768px) {
+            opacity: 1;
+            animation: none;
+        }
     }
 
     &::before {
@@ -48,6 +80,12 @@
         top: 5px;
         left: -10px;
         color: #0067ff;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
     }
 }
 
@@ -417,16 +455,28 @@
 .glitch {
     span {
         animation: paths 5s step-end infinite;
+        animation-delay: 3s;
+        @media (max-width: 768px) {
+            animation-delay: 0s;
+        }
     }
 
     &::before {
         animation: paths 5s step-end infinite, opacity 5s step-end infinite,
             font 8s step-end infinite, movement 10s step-end infinite;
+        animation-delay: 3s;
+        @media (max-width: 768px) {
+            animation-delay: 0s;
+        }
     }
 
     &::after {
         animation: paths 5s step-end infinite, opacity 5s step-end infinite,
             font 7s step-end infinite, movement 8s step-end infinite;
+        animation-delay: 3s;
+        @media (max-width: 768px) {
+            animation-delay: 0s;
+        }
     }
 }
 

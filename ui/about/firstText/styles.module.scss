@@ -2,49 +2,69 @@
 
 .firstText {
     &__container {
-        // background-color: $color-black;
-
+        background-color: $color-black;
         display: flex;
         flex-direction: column;
         justify-content: start;
         align-items: start;
-
         padding: 200px 90px;
 
         div:nth-child(1) {
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 2vw; //32px, 1600
+
             h3 {
-                font-size: 80px;
-                color: #f5f5f7;
-                font-weight: 600;
-                line-height: 100%;
-                letter-spacing: -0.04em;
                 white-space: nowrap;
             }
 
             p {
-                font-size: 28px;
-                color: #a1a1a6;
-                font-weight: 400;
-                width: 730px;
-                line-height: 120%;
-                letter-spacing: .007em;;
+                width: 45.625vw; //730px, 1600
             }
         }
         div:nth-child(2) {
             align-self: end;
             p {
-                font-size: 28px;
-                color: #a1a1a6;
-                font-weight: 400;
-                width: 530px;
-                line-height: 120%;
-                letter-spacing: .007em;;
-                // bottom: -200px;
-                // position: relative;
-                transform: translateY(200px);
+                width: 33.125vw; //530px, 1600
+                transform: translateY(15vw); //240px, 1600
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .firstText {
+        &__container {
+            background-color: $color-black;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            padding: 200px 20px;
+            gap: 3.865vw; //16px, 414
+
+            div:nth-child(1) {
+                display: flex;
+                flex-direction: column;
+                gap: 3.865vw; //16px, 414
+
+                h3 {
+                    white-space: normal;
+                    // word-wrap: break-word;
+                    // overflow-wrap: break-word;
+                }
+
+                p {
+                    width: 95%;
+                }
+            }
+            div:nth-child(2) {
+                align-self: end;
+                p {
+                    width: 95%;
+                    transform: translateY(0);
+                    // transform: translateY(15vw); //240px, 1600
+                }
             }
         }
     }

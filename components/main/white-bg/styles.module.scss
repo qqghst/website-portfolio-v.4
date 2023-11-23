@@ -13,16 +13,20 @@
     }
 
     .image {
+        width: 43.75vw;
+        height: auto;
     }
 
     .title {
         position: absolute;
+        z-index: 10;
     }
 
     .questionMark {
         position: absolute;
-        color: black;
+        // color: $color-black;
         font-size: 32px;
         left: 16.146vw; //310px
+        z-index: 10;
     }
 }

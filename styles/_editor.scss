@@ -1,17 +1,95 @@
 @import './variables';
 
+.bigText {
+    font-size: 8.916vw; //142.66px, 1600
+    font-weight: 300;
+    letter-spacing: -0.056em;
+    line-height: 110%;
+
+    @media (max-width: 768px) {
+        font-size: 11.541vw; //47.78px, 414
+        letter-spacing: -0.042em;
+        line-height: 100%;
+    }
+}
+
+.px13 {
+    font-size: 0.825vw; //13.2px; 1600
+    font-weight: 400;
+    // letter-spacing: 
+    // line-height: ;
+    color: $color-grey;
+
+    @media (max-width: 768px) {
+        font-size: 3.188vw;
+    }
+    
+
+}
+
 .h1 {
-    color: $color-white;
     font-size: 6.192vw; //99.07px, 1600
     font-weight: 600;
-    line-height: 105%;
     letter-spacing: -0.03em; //2.9px
+    line-height: 105%;
+    color: $color-white;
 
     @media (max-width: 768px) {
         font-size: 9.616vw; //39.81px
         line-height: 105%;
     }
 }
+
+.h2 {
+    font-size: 5.16vw; //82.56px, 1600
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 100%;
+    color: $color-white;
+
+    @media (max-width: 768px) {
+        font-size: 11.541vw; //47.78px, 414
+    }
+}
+
+.h3 {
+    font-size: 5.16vw; //82.56px, 1600
+    font-weight: 300;
+    letter-spacing: -0.07em;
+    line-height: 100%;
+    color: $color-white-oppacity;
+
+    @media (max-width: 768px) {
+        font-size: 33.18px;
+        line-height: 110%;
+    }
+}
+
+.h4 {
+    font-size: 1.728vw; //27.65px, 1600
+    font-weight: 400;
+    letter-spacing: 0.007em;
+    line-height: 120%;
+    color: $color-grey;
+
+    @media (max-width: 768px) {
+        font-size: 4.638vw; //19.2px, 414
+    }
+}
+
+.h5 {
+    font-size: 1.44vw; //23.04px, 1600
+    font-weight: 400;
+    letter-spacing: 0.007em;
+    line-height: 120%;
+    color: $color-grey;
+
+    @media (max-width: 768px) {
+        font-size: 3.865vw; //16px, 404
+    }
+}
+
+////////////////////////////////////////////////////////
 
 .h1-footer {
     // color: $color-white;
@@ -28,17 +106,17 @@
     }
 }
 
-.h2 {
-    color: $color-white;
-    font-size: 4.914vw; //82.56px
-    font-weight: 300;
-    line-height: 110%;
-    letter-spacing: -2%;
+// .h2 {
+//     color: $color-white;
+//     font-size: 4.914vw; //82.56px
+//     font-weight: 300;
+//     line-height: 110%;
+//     letter-spacing: -2%;
 
-    @media (max-width: 768px) {
-        font-size: 29.48px;
-    }
-}
+//     @media (max-width: 768px) {
+//         font-size: 29.48px;
+//     }
+// }
 
 .px16 {
     color: $color-white;
@@ -51,5 +129,3 @@
         // line-height: 60%;
     }
 }
-
-

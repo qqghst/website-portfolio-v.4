@@ -8,13 +8,13 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 const WhiteBg: React.FC = () => {
-    gsap.registerPlugin(ScrollTrigger);
     const tl = useRef<gsap.core.Timeline | null>(null);
-
+    
     const h1Ref = useRef(null);
     const imgRef = useRef(null);
-
+    
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
         tl.current = gsap.timeline();
 
         tl.current.to(
@@ -27,7 +27,6 @@ const WhiteBg: React.FC = () => {
                 },
                 scale: 4,
             }
-            // '+=0.2'
         );
 
         return () => {
@@ -52,20 +51,22 @@ const WhiteBg: React.FC = () => {
                     className={`${styles.title} h1`}
                     ref={h1Ref}>
                     <Link
-                        href='/'
+                        href='https://t.me/qqghstk'
                         target='_blank'
                         rel='noopener noreferrer'>
                         <span className='gradient'>contact me?</span>
                     </Link>
                 </h1>
-                <Link
-                    href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    data-scroll
-                    data-scroll-speed='1.2'>
-                    <span className={styles.questionMark}>🗿</span>
-                </Link>
+                <div className={styles.questionMark}>
+                    <Link
+                        href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        data-scroll
+                        data-scroll-speed='1.2'>
+                        <span>🗿</span>
+                    </Link>
+                </div>
             </div>
         </div>
     );

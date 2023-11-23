@@ -7,7 +7,7 @@ import { techStackData } from './data';
 
 const TechStack: React.FC = () => {
     return (
-        <div className={styles.techStack2}>
+        <div className={styles.techStack}>
             {techStackData.map((item, index) => (
                 <TechStackItem
                     key={index}

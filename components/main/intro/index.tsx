@@ -6,18 +6,17 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Masthead from '../masthead';
 import WhiteBg from '../white-bg';
 import About from '../about';
-import About2 from '../about2';
 
 const Intro: React.FC = () => {
-    gsap.registerPlugin(ScrollTrigger);
     const tl = useRef<gsap.core.Timeline | null>(null);
-
+    
     const containerRef = useRef<HTMLDivElement>(null);
     const mastheadRef = useRef<HTMLDivElement>(null);
     const whiteBgRef = useRef<HTMLDivElement>(null);
     const aboutRef = useRef<HTMLDivElement>(null);
-
+    
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
         if (!containerRef.current || !mastheadRef.current || !aboutRef.current)
             return;
 
@@ -25,60 +24,37 @@ const Intro: React.FC = () => {
 
         tl.current.fromTo(
             containerRef.current,
-            // {
-            //     backgroundColor: 'black',
-            // },
-            // {
-            //     duration: 1,
-            //     backgroundColor: 'white',
-            //     ease: 'power3.out',
-            //     scrollTrigger: {
-            //         trigger: mastheadRef.current,
-            //         start: 'bottom center',
-            //         // end: '+=2000px',
-            //         scrub: 1,
-            //         // toggleActions: 'play reverse play reverse',
-            //     },
-            // }
             {
                 backgroundColor: 'black',
             },
             {
+                duration: 1,
+                ease: 'none',
                 backgroundColor: 'white',
                 scrollTrigger: {
                     trigger: mastheadRef.current,
-                    start: 'bottom +=300',
-                    end: '+=1000',
-                    scrub: true,
+                    start: 'bottom center',
+                    // end: '+=1000',
+                    scrub: 1,
+
                 },
             }
         );
 
         tl.current.fromTo(
             containerRef.current,
-            // {},
-            // {
-            //     duration: 1,
-            //     backgroundColor: 'black',
-            //     ease: 'power2.out',
-            //     scrollTrigger: {
-            //         trigger: aboutRef.current,
-            //         start: 'top-=200px bottom',
-            //         // end: '+=500',
-            //         scrub: 1,
-            //         // toggleActions: 'play reverse play reverse',
-            //     },
-            // }
             {},
             {
+                duration: 1,
+                ease: 'none',
                 backgroundColor: 'black',
-                duration: 0.1,
-                delay: 0.1,
                 scrollTrigger: {
                     trigger: aboutRef.current,
-                    start: 'top center',
+                    // start: 'top bottom',
+                    start: '-=100px bottom',
                     end: '+=500',
-                    scrub: true,
+                    scrub: 1,
+
                 },
             }
         );
@@ -96,11 +72,10 @@ const Intro: React.FC = () => {
                 <WhiteBg />
             </div>
             <div ref={aboutRef}>
-                <About2 />
+                <About />
             </div>
         </div>
     );
 };
 
-// export default Intro;
 export default React.memo(Intro);

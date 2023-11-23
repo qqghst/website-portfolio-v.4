@@ -8,7 +8,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
 
 const Title: React.FC = () => {
-    gsap.registerPlugin(ScrollTrigger);
     const tl = useRef<gsap.core.Timeline | null>(null);
 
     const firstLineRef = useRef<HTMLSpanElement | null>(null);
@@ -16,12 +15,13 @@ const Title: React.FC = () => {
     const gradientRef = useRef<HTMLSpanElement | null>(null);
 
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
         tl.current = gsap.timeline({
             scrollTrigger: {
                 trigger: firstLineRef.current,
                 start: 'top center',
-                // once: true,
-                // toggleActions: 'play none none none',
+                markers: true,
+                toggleActions: 'play none none none',
             },
         });
 
@@ -53,7 +53,7 @@ const Title: React.FC = () => {
         tl.current.fromTo(
             gradientRef.current,
             { opacity: 0 },
-            { opacity: 1, duration: 1.2, delay: '-0.6' },
+            { opacity: 1, duration: 1.2, delay: '-0.6' }
             // '>'
         );
 
@@ -64,26 +64,25 @@ const Title: React.FC = () => {
     return (
         <>
             <span
-                className='h1-footer'
-                ref={firstLineRef}>
+                ref={firstLineRef}
+                className='h1 text-black'>
                 wanna create
             </span>
-            <br />
+
             <span
-                // className='h1-footer translate-x-10 hidden'
-                className={`${styles.margin2} h1-footer`}
-                ref={secondLineRef}>
+                ref={secondLineRef}
+                className={`h1 ${styles.margin2} text-black`}>
                 project together?
             </span>
-            <br />
+
             <span
-                className={`${styles.margin3} h1-footer`}
-                ref={gradientRef}>
+                ref={gradientRef}
+                className={`h1 ${styles.margin3} text-black`}>
                 <Link
                     href='https://t.me/qqghstk'
                     target='_blank'
                     rel='noopener noreferrer'>
-                    <span className='gradient'>contact me</span>
+                    <span className='gradient'>contact me.</span>
                 </Link>
             </span>
         </>

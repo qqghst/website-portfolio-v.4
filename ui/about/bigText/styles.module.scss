@@ -3,27 +3,11 @@
 @media (min-width: 769px) {
     .bigText {
         &__container {
-            background-color: black;
+            background-color: $color-black;
             padding: 0 2.5vw; //0 40px, 1600
 
-            .scrollingText > p > div {
-                background: linear-gradient(
-                    to right,
-                    rgb(255, 255, 255) 50%,
-                    rgb(29, 29, 29) 50%
-                );
-                background-size: 200% 100%;
-                background-position-x: 100%;
-                color: transparent;
-                background-clip: text;
-                -webkit-background-clip: text;
-                font-kerning: none;
-                min-width: 600px;
-
-                font-size: 8.916vw; //142.66px, 1600
-                line-height: 110%;
-                font-weight: 300;
-                letter-spacing: -8px;
+            div:nth-child(1) {
+                max-width: 46vw; //736px; 1600
             }
         }
     }
@@ -33,26 +17,10 @@
     .bigText {
         &__container {
             background-color: black;
-            padding: 0 3.865vw; //0 16px, 414
+            padding: 0 4.831vw; //0 20px, 414
 
-            .scrollingText > p > div {
-                background: linear-gradient(
-                    to right,
-                    rgb(255, 255, 255) 50%,
-                    rgb(29, 29, 29) 50%
-                );
-                background-size: 200% 100%;
-                background-position-x: 100%;
-                color: transparent;
-                background-clip: text;
-                -webkit-background-clip: text;
-                font-kerning: none;
-                max-width: 80%;
-
-                font-size: 11.541vw; //47.78px, 414
-                line-height: 100%;
-                font-weight: 300;
-                letter-spacing: -2px;
+            div:nth-child(1) {
+                max-width: 67.633vw; //280px; 414
             }
         }
     }

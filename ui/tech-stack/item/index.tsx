@@ -4,136 +4,131 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
-import Marquee from 'react-fast-marquee';
 import { ITechStackItemProps } from './interface';
-import img from '@/public/projects/1.png';
+import useWindowSize from '@/hooks/useWindowSize';
 
 const TechStackItem: React.FC<ITechStackItemProps> = ({ title, tools }) => {
     gsap.registerPlugin(ScrollTrigger);
-    const tl = useRef<gsap.core.Timeline | null>(null);
-    const tl2 = useRef<gsap.core.Timeline | null>(null);
 
-    const textRef = useRef<HTMLSpanElement>(null);
-    const textRef1 = useRef<HTMLSpanElement>(null);
-    const textRef2 = useRef<HTMLSpanElement>(null);
-
-    const spanRef = useRef<HTMLSpanElement>(null);
-    const imgRef = useRef<HTMLImageElement>(null);
-    const techStackTextRef = useRef<HTMLDivElement>(null);
-    const techStackImgRef = useRef(null);
-    const toolRefs = useRef(null);
+    const { width } = useWindowSize();
+    const isMobile = width < 768;
 
     const [showTechStack, setShowTechStack] = useState(false);
+
+    const tl = useRef<gsap.core.Timeline | null>(null);
+
     const containerRef = useRef<HTMLDivElement>(null);
 
-    const toggleTechStack = () => {
+    const titleRef = useRef<HTMLSpanElement>(null);
+    const clickMeRef = useRef<HTMLSpanElement>(null);
+    const arrowRef = useRef<HTMLImageElement>(null);
+
+    const toolsRef = useRef<HTMLDivElement>(null);
+
+    const toggleTechStackTools = () => {
         setShowTechStack(!showTechStack);
 
-        if (imgRef.current) {
-            gsap.to(imgRef.current, {
-                ease: 'power2.out',
-                duration: 0.6,
-                rotation: !showTechStack ? 180 : 0,
-            });
-        }
+        gsap.to(arrowRef.current, {
+            rotation: !showTechStack ? 180 : 0,
+            duration: 0.6,
+            ease: 'power2.out',
+        });
 
-        if (containerRef.current) {
-            gsap.to(containerRef.current, {
-                paddingBottom: !showTechStack ? 100 : 30,
+        gsap.to(containerRef.current, {
+            paddingBottom: !showTechStack ? (isMobile ? '20vw' : '6vw') : '2vw', //96px, 32px; 1600
+            duration: 0.6,
+            ease: 'power2.out',
+        });
 
-                duration: 0.5,
-                ease: 'power1.out',
-            });
-        }
+        // gsap.to(techStackTextRef.current, {
+        //     opacity: !showTechStack ? 1 : 0,
+        //     duration: 1,
+        //     ease: 'power2.out',
+        //     delay: 3,
+        //     stagger: 0.7,
+        // });
     };
 
+    //использую здесь, а не в функции toggleTechStack, потому что опасити указано в scss и чтобы оно меняло опасити нужен useeffect
     useEffect(() => {
-        if (techStackTextRef.current) {
-            gsap.to(techStackTextRef.current, {
-                opacity: showTechStack ? 1 : 0,
-                delay: 0.6,
-                duration: 1,
-                ease: 'power2.out',
-                stagger: 0.7,
-            });
-        }
+        gsap.to(toolsRef.current, {
+            opacity: showTechStack ? 1 : 0,
+            duration: 1,
+            ease: 'power2.out',
+            delay: 0.6,
+            stagger: 0.7,
+        });
     }, [showTechStack]);
 
     useEffect(() => {
-        const split = new SplitType(textRef.current, { types: 'lines' });
-        const split2 = new SplitType(textRef1.current, { types: 'lines' });
-        const split3 = new SplitType(textRef2.current, { types: 'lines' });
+        tl.current = gsap.timeline();
 
-        const splits = [split, split2, split3];
+        const split = new SplitType(titleRef.current, { types: 'lines' });
 
-        splits.forEach((split) => {
-            tl.current = gsap.timeline({
-                scrollTrigger: {
-                    trigger: textRef.current,
-                    scrub: 0.9,
-                    start: 'top center',
-                    end: 'bottom center',
-                },
-            });
-
-            split.lines?.forEach((line) => {
-                if (tl.current) {
-                    tl.current.fromTo(
-                        line,
-                        { opacity: 1, scale: 1 },
-                        {
-                            backgroundPositionX: 0,
-                            ease: 'none',
-                            opacity: 1,
-                            scale: 1,
-                        }
-                    );
-                }
-            });
+        split.lines?.forEach((line) => {
+            if (tl.current) {
+                tl.current.fromTo(
+                    line,
+                    { opacity: 1, scale: 1 },
+                    {
+                        backgroundPositionX: 0,
+                        ease: 'none',
+                        opacity: 1,
+                        scale: 1,
+                        scrollTrigger: {
+                            trigger: titleRef.current,
+                            scrub: 0.9,
+                            start: 'top center',
+                            end: 'bottom center',
+                        },
+                    }
+                );
+            }
         });
 
-        tl2.current = gsap.timeline({
-            scrollTrigger: {
-                trigger: spanRef.current,
-                scrub: 0.03,
-                start: 'top center',
-                end: 'top top',
-            },
-        });
-
-        tl2.current.fromTo(
-            [spanRef.current, imgRef.current],
+        tl.current.fromTo(
+            [clickMeRef.current, arrowRef.current],
             { opacity: 0 },
             {
                 opacity: 1,
                 duration: 1,
+                scrollTrigger: {
+                    trigger: clickMeRef.current,
+                    scrub: 0.03,
+                    start: 'top center',
+                    end: 'top top',
+                },
             }
         );
 
         return () => {
             tl.current?.kill();
-            tl2.current?.kill();
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
     }, []);
     return (
         <div
             className={styles.techStackItem}
-            onClick={toggleTechStack}>
+            onClick={toggleTechStackTools}>
             <div
                 className={styles.techStackItem__container}
                 ref={containerRef}>
-                <div className={styles.scrollingText}>
-                    <span ref={textRef}>{title}</span>
+                <div className='scrolling-text'>
+                    <span
+                        className='h1'
+                        ref={titleRef}>
+                        {title}
+                    </span>
                 </div>
-                <span ref={spanRef}>
+                <span
+                    ref={clickMeRef}
+                    className='hide-on-mobile px13'>
                     {' '}
                     {showTechStack
                         ? 'click me to close tech stack'
                         : 'click me to see tech stack'}
                 </span>
                 <Image
-                    ref={imgRef}
+                    ref={arrowRef}
                     className={styles.arrow}
                     src='/tech-stack/arrow.svg'
                     alt='arrow'
@@ -143,14 +138,12 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title, tools }) => {
             </div>
             {showTechStack && (
                 <div
-                    className={styles.techStackText}
-                    ref={techStackTextRef}>
-                    <ul className={styles.techStackTools}>
+                    className={styles.tools}
+                    ref={toolsRef}>
+                    <ul>
                         {tools.map((item, index) => (
                             <li
-                                ref={toolRefs}
-                                key={index}
-                                className={`${styles.tools}`}>
+                                key={index}>
                                 {item}
                             </li>
                         ))}
