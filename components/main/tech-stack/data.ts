@@ -12,6 +12,7 @@ export const techStackData = [
             'React',
             'Nextjs'
         ],
+        showLine: true,
     },
     {
         id: 2,
@@ -21,6 +22,7 @@ export const techStackData = [
             'Framer Motion',
             'Locomotive Scroll',
         ],
+        showLine: false,
     },
     {
         id: 3,
@@ -30,6 +32,7 @@ export const techStackData = [
             'Photoshop',
             'Illustrator',
         ],
+        showLine: false,
     },
     {
         id: 4,
@@ -37,5 +40,6 @@ export const techStackData = [
         tools: [
             'React Native',
         ],
+        showLine: false,
     },
 ];

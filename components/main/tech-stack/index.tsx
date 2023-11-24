@@ -13,6 +13,7 @@ const TechStack: React.FC = () => {
                     key={index}
                     title={item.title}
                     tools={item.tools}
+                    showLine={item.showLine}
                 />
             ))}
         </div>

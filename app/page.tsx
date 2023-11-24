@@ -15,6 +15,7 @@ import TechStack from '@/components/main/tech-stack';
 import About from '@/components/main/about';
 import FirstText from '@/ui/about/firstText';
 import BigText from '@/ui/about/bigText';
+import Line from '@/ui/tech-stack/line';
 
 export default function Home() {
     useEffect(() => {
@@ -29,7 +30,8 @@ export default function Home() {
         <main className=''>
             {/* <Intro /> */}
             <div className='h-[900px] bg-red-700'></div>
-            <About />
+            {/* <About /> */}
+            {/* <Line /> */}
             <TechStack />
             <div className='h-[900px] bg-green-700'></div>
             {/* <Masthead />

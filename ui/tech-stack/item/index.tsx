@@ -6,14 +6,16 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
 import { ITechStackItemProps } from './interface';
 import useWindowSize from '@/hooks/useWindowSize';
+import Line from '../line';
 
-const TechStackItem: React.FC<ITechStackItemProps> = ({ title, tools }) => {
+const TechStackItem: React.FC<ITechStackItemProps> = ({ title, tools, showLine }) => {
     gsap.registerPlugin(ScrollTrigger);
 
     const { width } = useWindowSize();
     const isMobile = width < 768;
 
-    const [showTechStack, setShowTechStack] = useState(false);
+    const [showTechStack, setShowTechStack] = useState<boolean>(false);
+    // const [showLine, setShowLine] = useState<boolean>(false)
 
     const tl = useRef<gsap.core.Timeline | null>(null);
 
@@ -61,6 +63,7 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title, tools }) => {
     }, [showTechStack]);
 
     useEffect(() => {
+        if (!titleRef.current || !clickMeRef.current || !arrowRef.current) return;
         tl.current = gsap.timeline();
 
         const split = new SplitType(titleRef.current, { types: 'lines' });
@@ -109,6 +112,7 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title, tools }) => {
         <div
             className={styles.techStackItem}
             onClick={toggleTechStackTools}>
+            {showLine && <Line />}
             <div
                 className={styles.techStackItem__container}
                 ref={containerRef}>
@@ -136,16 +140,14 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title, tools }) => {
                     height={20 / 2}
                 />
             </div>
+            <Line />
             {showTechStack && (
                 <div
                     className={styles.tools}
                     ref={toolsRef}>
                     <ul>
                         {tools.map((item, index) => (
-                            <li
-                                key={index}>
-                                {item}
-                            </li>
+                            <li key={index}>{item}</li>
                         ))}
                     </ul>
                 </div>
