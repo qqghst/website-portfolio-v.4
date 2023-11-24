@@ -10,23 +10,21 @@ const ProjeectItem: React.FC<IProjectsItemProps> = ({
 }) => {
     return (
         <>
-            <div className={styles.projeectItem}>
-                <div className={styles.projeectItem__container}>
+            <div className={styles.projectItem}>
+                <div className={styles.projectItem__container}>
                     <div className={styles.imageContainer}>
                         <figure>
                             <Image
-                                className={styles.img}
                                 src={src}
                                 alt={`${title} - ${description}`}
-                                // layout='responsive'
                                 width={800 / 2}
                                 height={200 / 2}
                             />
                         </figure>
                     </div>
                     <div className={styles.textContainer}>
-                        <span>{title}</span>
-                        <span>{description}</span>
+                        <span className='px19'>{title}</span>
+                        <span className='px13'>{description}</span>
                     </div>
                 </div>
             </div>

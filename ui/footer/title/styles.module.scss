@@ -2,7 +2,8 @@
     transform: translateX(5.063vw); //81px, 1600
 
     @media (max-width: 768px) {
-        transform: translateX(7.729vw); //32px, 414
+        // transform: translateX(7.729vw); //32px, 414
+        transform: translateX(0);
     }
 }
 
@@ -10,6 +11,7 @@
     transform: translateX(-2.563vw); //-41px, 1600
 
     @media (max-width: 768px) {
-        transform: translateX(-4.106vw); //-17px, 414
+        transform: translateX(0);
+        // transform: translateX(-4.106vw); //-17px, 414
     }
 }

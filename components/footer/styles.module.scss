@@ -11,3 +11,20 @@
         align-items: center;
     }
 }
+
+@media (max-width: 768px) {
+    .footer {
+        &__container {
+            position: relative;
+            // background-color: white;
+            min-height: 100vh;
+            min-width: 100vw;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            padding: 0 4.831vw; //0 20px, 414
+        }
+    }
+}

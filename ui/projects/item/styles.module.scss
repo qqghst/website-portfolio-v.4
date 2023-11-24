@@ -1,6 +1,7 @@
-.projeectItem {
+.projectItem {
     height: 100vh;
     width: 100vw;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,6 +11,11 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
+
+        // @media (max-width: 768px) {
+        //     align-items: center;
+        //     justify-content: center;
+        // }
 
         .imageContainer {
             img,
@@ -27,11 +33,21 @@
 
             figure {
                 overflow: hidden;
-                border-radius: 30px;
+                border-radius: 24px;
 
-                .img {
-                    width: 900px;
-                    height: 600px;
+                @media (max-width: 768px) {
+                    overflow:visible;
+                }
+
+                img {
+                    width: 55vw; //880px; 1600
+                    height: 37.5vw; //600px; 1600
+
+                    @media (max-width: 768px) {
+                        width: 57.971vw; //240px; 414
+                        height: 96.618vw; //400px; 414
+                        border-radius: 24px;
+                    }
                 }
             }
         }
@@ -41,16 +57,6 @@
             flex-direction: column;
             align-items: flex-start;
             gap: 8px;
-
-            span:nth-child(1) {
-                font-size: 19.2px;
-                color: white;
-            }
-
-            span:nth-child(2) {
-                font-size: 13.3px;
-                color: rgba(255, 255, 255, 0.528);
-            }
         }
     }
 }

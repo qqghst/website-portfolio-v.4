@@ -7,10 +7,9 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
 import { projects } from './data';
-import ProjeectItem from '@/ui/projects/projects-item';
+import ProjeectItem from '@/ui/projects/item';
 
 const Projects: React.FC = () => {
-    gsap.registerPlugin(ScrollTrigger);
     const tl = useRef<gsap.core.Timeline | null>(null);
 
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -18,7 +17,18 @@ const Projects: React.FC = () => {
     const spanRef = useRef(null);
 
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
         tl.current = gsap.timeline({});
+        
+        const tl2 = gsap.timeline({
+            scrollTrigger: {
+                trigger: triggerRef.current,
+                start: 'top top',
+                end: '2000 top',
+                scrub: 1,
+                pin: true,
+            },
+        });
 
         const span = new SplitType(spanRef.current!, {
             types: 'chars',
@@ -48,7 +58,7 @@ const Projects: React.FC = () => {
             }
         );
 
-        const tl2 = gsap.fromTo(
+        tl2.fromTo(
             sectionRef.current,
             {
                 translateX: 0,
@@ -57,13 +67,6 @@ const Projects: React.FC = () => {
                 translateX: '-300vw',
                 ease: 'none',
                 duration: 1,
-                scrollTrigger: {
-                    trigger: triggerRef.current,
-                    start: 'top top',
-                    end: '2000 top',
-                    scrub: 0.6,
-                    pin: true,
-                },
             }
         );
 
@@ -91,7 +94,7 @@ const Projects: React.FC = () => {
                                 projects.map((item, index) => (
                                     <Link
                                         href='/'
-                                        target="_blank"
+                                        target='_blank'
                                         rel='noopener noreferrer'
                                         key={item.id}>
                                         <ProjeectItem
