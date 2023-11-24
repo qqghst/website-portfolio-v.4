@@ -28,20 +28,21 @@ export default function Home() {
     }, []);
     return (
         <main className=''>
-            {/* <Intro /> */}
-            <Masthead />
-            <Footer />
-            <div className='h-[900px] bg-red-700'></div>
+            {/* <About /> */}
+            <Intro />
+            <TechStack />
+            <Outro />
+            {/* <Masthead /> */}
+            {/* <Footer /> */}
+            {/* <div className='h-[900px] bg-red-700'></div> */}
             {/* <About /> */}
             {/* <Line /> */}
-            {/* <TechStack /> */}
             {/* <Projects /> */}
             {/* <div className='h-[900px] bg-green-700'></div> */}
             {/* <Masthead />
             <Footer />
             {/* <BigText /> */}
             {/* <FirstText /> */}
-            {/* <Outro /> */}
         </main>
     );
 }

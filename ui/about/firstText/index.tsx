@@ -31,7 +31,6 @@ const FirstText: React.FC = () => {
                     // start: 'top 90%',
                     start: 'top bottom',
                     scrub: 1,
-                    // markers: true,
                 },
             }
         );
@@ -50,7 +49,6 @@ const FirstText: React.FC = () => {
                     // start: 'top 90%',
                     start: 'top bottom',
                     scrub: 1,
-                    markers: true,
                 },
             },
             '<'

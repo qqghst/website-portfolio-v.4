@@ -24,7 +24,8 @@ const SecondText: React.FC = () => {
             tl.current = gsap.timeline({
                 scrollTrigger: {
                     trigger: textRef.current,
-                    start: 'top center',
+                    start: 'top bottom-=120px',
+                    markers: true,
                     // toggleActions: 'play none none restart',
                 },
             });

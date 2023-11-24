@@ -4,13 +4,15 @@ export const techStackData = [
         title: 'Frontend.',
         tools: [
             'HTML',
+            'Pug',
             'CSS',
             'SCSS',
             'Tailwind',
             'JavaScript',
             'TypeScript',
             'React',
-            'Nextjs'
+            'Nextjs',
+            'Gulp'
         ],
         showLine: true,
     },
@@ -21,6 +23,7 @@ export const techStackData = [
             'GSAP',
             'Framer Motion',
             'Locomotive Scroll',
+            'Three.js'
         ],
         showLine: false,
     },

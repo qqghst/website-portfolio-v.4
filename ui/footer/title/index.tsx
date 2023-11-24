@@ -20,7 +20,6 @@ const Title: React.FC = () => {
             scrollTrigger: {
                 trigger: firstLineRef.current,
                 start: 'top center',
-                markers: true,
                 toggleActions: 'play none none none',
             },
         });
@@ -71,13 +70,13 @@ const Title: React.FC = () => {
 
             <span
                 ref={secondLineRef}
-                className={`h1 ${styles.margin2} text-black`}>
+                className={`h1 text-black ${styles.margin2}`}>
                 project together?
             </span>
 
             <span
                 ref={gradientRef}
-                className={`h1 ${styles.margin3} text-black`}>
+                className={`h1 text-black ${styles.margin3}`}>
                 <Link
                     href='https://t.me/qqghstk'
                     target='_blank'

@@ -3,8 +3,9 @@ import styles from './styles.module.scss';
 import Link from 'next/link';
 import gsap from 'gsap';
 import MobileArrow from '../mobile-arrow';
+import { IMobileButtonProps } from './interface';
 
-const MobileButton: React.FC = () => {
+const MobileButton: React.FC<IMobileButtonProps> = ({ color, background }) => {
     const tl = useRef<gsap.core.Timeline | null>(null);
     const mobileButtonRef = useRef<HTMLDivElement>(null);
 
@@ -30,9 +31,18 @@ const MobileButton: React.FC = () => {
                 href='https://t.me/qqghstk'
                 target='_blank'
                 rel='noopener noreferrer'>
-                <span className='h1'>contact me</span>
-                <div className={`${styles.arrow}`}>
-                    <MobileArrow />
+                <span
+                    className='h1'
+                    style={{ color: color }}>
+                    contact me
+                </span>
+                <div className={`${styles.arrowContainer}`}>
+                    <div
+                        style={{ '--background-color': background } as React.CSSProperties} 
+                        className={`${styles.arrow} ${styles.arrowFirst}`}></div>
+                    <div
+                        style={{ background: background }}
+                        className={`${styles.arrow} ${styles.arrowSecond}`}></div>
                 </div>
             </Link>
         </div>

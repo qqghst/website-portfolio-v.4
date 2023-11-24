@@ -1,11 +1,19 @@
 import React from 'react';
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
-const MobileArrow: React.FC = () => {
+interface IMobileArrowProps {
+    background?: string;
+}
+
+const MobileArrow: React.FC<IMobileArrowProps> = ({ background }) => {
     return (
         <>
-            <div className={`${styles.arrow} ${styles.arrowFirst}`}></div>
-            <div className={`${styles.arrow} ${styles.arrowSecond}`}></div>
+            <div
+                style={{ background: background }}
+                className={`${styles.arrow} ${styles.arrowFirst}`}></div>
+            <div
+                style={{ background: background }}
+                className={`${styles.arrow} ${styles.arrowSecond}`}></div>
         </>
     );
 };

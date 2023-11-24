@@ -1,11 +1,65 @@
+@import '../../../styles/variables';
+
 .mobileButton {
     margin-top: 101.449vw; //420px, 414
     margin-bottom: 9.662vw; //40px, 414
     z-index: 3;
 
-    .arrow {
+    .arrowContainer {
         padding-left: 125.604vw; //520px, 414
     }
 }
 
 
+.arrow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    transform-origin: 50% 50%;
+    opacity: 0;
+
+    &::before,
+    &::after {
+        content: '';
+        // background: $color-white;
+        background: var(--background-color, $color-white);
+        position: absolute;
+        display: block;
+        height: 3px;
+        width: 12px;
+        top: 0;
+        left: 0;
+    }
+
+    &::before {
+        transform: rotate(135deg) translate(5px, 5px);
+        transform-origin: 0% 50%;
+    }
+
+    &::after {
+        transform: rotate(-135deg) translate(5px, -5px);
+        transform-origin: 0% 50%;
+    }
+}
+
+.arrowFirst {
+    animation: arrow-movement 2s ease-in-out infinite;
+}
+.arrowSecond {
+    animation: arrow-movement 2s 1s ease-in-out infinite;
+}
+
+@keyframes arrow-movement {
+    0% {
+        opacity: 0;
+        left: 45%;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        left: 50%;
+    }
+}

@@ -12,9 +12,9 @@ import BigText from '@/ui/about/bigText';
 
 const About2: React.FC = () => {
     // const tl = useRef<gsap.core.Timeline | null>(null);
-    
+
     // const textRef = useRef<HTMLDivElement>(null);
-    
+
     // useEffect(() => {
     //     gsap.registerPlugin(ScrollTrigger);
     //     tl.current = gsap.timeline({
@@ -49,9 +49,9 @@ const About2: React.FC = () => {
     return (
         <div className={`${styles.secondText}`}>
             <div className={styles.seconeText__container}>
-                    {/* <FirstText /> */}
-                    {/* <SecondText /> */}
-                    <BigText />
+                {/* <FirstText /> */}
+                <SecondText />
+                {/* <BigText /> */}
             </div>
         </div>
     );
