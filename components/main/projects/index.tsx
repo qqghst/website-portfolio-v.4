@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         tl.current = gsap.timeline({});
-        
+
         const tl2 = gsap.timeline({
             scrollTrigger: {
                 trigger: triggerRef.current,
@@ -92,17 +92,13 @@ const Projects: React.FC = () => {
 
                             {projects &&
                                 projects.map((item, index) => (
-                                    <Link
-                                        href='/'
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        key={item.id}>
-                                        <ProjeectItem
-                                            src={item.image}
-                                            title={item.title}
-                                            description={item.description}
-                                        />
-                                    </Link>
+                                    <ProjeectItem
+                                        key={index}
+                                        src={item.image}
+                                        title={item.title}
+                                        description={item.description}
+                                        href={item.href}
+                                    />
                                 ))}
                         </div>
                     </div>

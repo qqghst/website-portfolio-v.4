@@ -14,7 +14,6 @@ const Menu: React.FC = () => {
 
     const { width } = useWindowSize();
     const isMobile = width < 768;
-    // const isMobile = width !== undefined && width < 768;
 
     const pathRef = useRef<SVGPathElement | null>(null);
 
