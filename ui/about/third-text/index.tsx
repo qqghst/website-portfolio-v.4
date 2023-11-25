@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
 
-const BigText: React.FC = () => {
+const ThirdText: React.FC = () => {
     const tl = useRef<gsap.core.Timeline | null>(null);
 
     const textRef = useRef<HTMLParagraphElement>(null);
@@ -64,4 +64,4 @@ const BigText: React.FC = () => {
     );
 };
 
-export default BigText;
+export default ThirdText;

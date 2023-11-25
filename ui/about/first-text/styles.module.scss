@@ -2,19 +2,19 @@
 
 .firstText {
     &__container {
-        // background-color: $color-black;
         display: flex;
         flex-direction: column;
         justify-content: start;
         align-items: start;
-        padding: 200px 90px;
+
+        padding: 12.5vw 4vw; //200px 64px; 1600
 
         div:nth-child(1) {
             display: flex;
             flex-direction: column;
             gap: 2vw; //32px, 1600
 
-            h3 {
+            h2 {
                 white-space: nowrap;
             }
 
@@ -24,9 +24,11 @@
         }
         div:nth-child(2) {
             align-self: end;
+
             p {
                 width: 33.125vw; //530px, 1600
-                transform: translateY(15vw); //240px, 1600
+                top: 15vw; //240px, 1600
+                position: relative;
             }
         }
     }
@@ -35,12 +37,12 @@
 @media (max-width: 768px) {
     .firstText {
         &__container {
-            background-color: $color-black;
             display: flex;
             flex-direction: column;
             justify-content: start;
             align-items: start;
-            padding: 200px 20px;
+
+            padding: 0vw 4.831vw; //200px 20px; 414
             gap: 3.865vw; //16px, 414
 
             div:nth-child(1) {
@@ -50,8 +52,6 @@
 
                 h3 {
                     white-space: normal;
-                    // word-wrap: break-word;
-                    // overflow-wrap: break-word;
                 }
 
                 p {
@@ -60,10 +60,10 @@
             }
             div:nth-child(2) {
                 align-self: end;
+
                 p {
                     width: 95%;
-                    transform: translateY(0);
-                    // transform: translateY(15vw); //240px, 1600
+                    top: 0;
                 }
             }
         }

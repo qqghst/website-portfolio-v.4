@@ -10,8 +10,8 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 const WhiteBg: React.FC = () => {
     const tl = useRef<gsap.core.Timeline | null>(null);
     
-    const h1Ref = useRef(null);
-    const imgRef = useRef(null);
+    const h1Ref = useRef<HTMLHeadingElement>(null);
+    const imgRef = useRef<HTMLImageElement>(null);
     
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -38,17 +38,16 @@ const WhiteBg: React.FC = () => {
         <div className={styles.whiteBg}>
             <div className={styles.whiteBg__container}>
                 <Image
-                    className={styles.image}
                     ref={imgRef}
                     src='/white-bg/test.jpeg'
                     alt='1'
                     width={1400 / 2}
                     height={1400 / 2}
                     data-scroll
-                    data-scroll-speed='1.4'
+                    data-scroll-speed='1.2'
                 />
                 <h1
-                    className={`${styles.title} h1`}
+                    className='h1'
                     ref={h1Ref}>
                     <Link
                         href='https://t.me/qqghstk'
@@ -57,14 +56,14 @@ const WhiteBg: React.FC = () => {
                         <span className='gradient'>contact me?</span>
                     </Link>
                 </h1>
-                <div className={styles.questionMark}>
+                <div>
                     <Link
                         href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley'
                         target='_blank'
                         rel='noopener noreferrer'
                         data-scroll
                         data-scroll-speed='1.2'>
-                        <span>🗿</span>
+                        <span>?</span>
                     </Link>
                 </div>
             </div>

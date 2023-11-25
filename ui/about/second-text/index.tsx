@@ -25,8 +25,8 @@ const SecondText: React.FC = () => {
                 scrollTrigger: {
                     trigger: textRef.current,
                     start: 'top bottom-=120px',
+                    toggleActions: 'play none none none',
                     markers: true,
-                    // toggleActions: 'play none none restart',
                 },
             });
 

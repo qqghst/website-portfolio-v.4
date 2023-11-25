@@ -7,11 +7,12 @@
         align-items: start;
 
         background-color: $color-black;
-        padding: 400px 64px; //220px 0
+        padding: 25vw 0; //400px 0
         overflow-x: hidden;
 
         .textContainer {
             white-space: nowrap;
+
             span {
                 color: $color-white;
             }
@@ -31,10 +32,11 @@
             align-items: start;
 
             background-color: $color-black;
-            padding: 0vw 4.831vw; //0 20px
+            padding: 28.986vw 4.831vw; //120px 20px; 414
 
             .textContainer {
                 white-space: normal;
+
                 span {
                     color: $color-white;
                 }

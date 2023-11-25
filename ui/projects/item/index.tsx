@@ -12,19 +12,21 @@ const ProjeectItem: React.FC<IProjectsItemProps> = ({
         <>
             <div className={styles.projectItem}>
                 <div className={styles.projectItem__container}>
-                    <div className={styles.imageContainer}>
-                        <figure>
-                            <Image
-                                src={src}
-                                alt={`${title} - ${description}`}
-                                width={800 / 2}
-                                height={200 / 2}
-                            />
-                        </figure>
-                    </div>
-                    <div className={styles.textContainer}>
-                        <span className='px19'>{title}</span>
-                        <span className='px13'>{description}</span>
+                    <div className={styles.border}>
+                        <div className={styles.imageContainer}>
+                            <figure>
+                                <Image
+                                    src={src}
+                                    alt={`${title} - ${description}`}
+                                    width={800 / 2}
+                                    height={200 / 2}
+                                />
+                            </figure>
+                        </div>
+                        <div className={styles.textContainer}>
+                            <span className='px19'>{title}</span>
+                            <span className='px13'>{description}</span>
+                        </div>
                     </div>
                 </div>
             </div>

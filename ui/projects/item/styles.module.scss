@@ -12,10 +12,14 @@
         flex-direction: column;
         gap: 16px;
 
-        // @media (max-width: 768px) {
-        //     align-items: center;
-        //     justify-content: center;
-        // }
+        .border {
+            border: 1px rgba(255, 255, 255, 0.5);
+            border-top-style: solid;
+            border-bottom-style: solid;
+            border-left-style: none;
+            border-right-style: none;
+            border-radius: 20px;
+        }
 
         .imageContainer {
             img,
@@ -36,7 +40,7 @@
                 border-radius: 24px;
 
                 @media (max-width: 768px) {
-                    overflow:visible;
+                    overflow: visible;
                 }
 
                 img {

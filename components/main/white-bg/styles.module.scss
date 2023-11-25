@@ -13,21 +13,21 @@
         overflow-x: hidden;
     }
 
-    .image {
+    img {
         width: 43.75vw;
         height: auto;
     }
 
-    .title {
+    h1 {
         position: absolute;
         z-index: 10;
     }
 
-    .questionMark {
+    div:nth-child(3) {
         position: absolute;
         // color: $color-black;
-        font-size: 32px;
+        font-size: 19.2px;
         left: 16.146vw; //310px
-        z-index: 10;
+        z-index: 11;
     }
 }
