@@ -34,7 +34,6 @@ const Intro: React.FC = () => {
                 scrollTrigger: {
                     trigger: mastheadRef.current,
                     start: 'bottom center',
-                    // end: '+=1000',
                     scrub: 1,
 
                 },
@@ -50,7 +49,6 @@ const Intro: React.FC = () => {
                 backgroundColor: 'black',
                 scrollTrigger: {
                     trigger: aboutRef.current,
-                    // start: 'top bottom',
                     start: '-=100px bottom',
                     end: '+=500',
                     scrub: 1,

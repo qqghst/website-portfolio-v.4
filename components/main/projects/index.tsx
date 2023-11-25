@@ -2,12 +2,11 @@
 
 import React, { useEffect, useRef } from 'react';
 import styles from './styles.module.scss';
-import Link from 'next/link';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
 import { projects } from './data';
-import ProjeectItem from '@/ui/projects/item';
+import ProjectItem from '@/ui/projects/item';
 
 const Projects: React.FC = () => {
     const tl = useRef<gsap.core.Timeline | null>(null);
@@ -92,7 +91,7 @@ const Projects: React.FC = () => {
 
                             {projects &&
                                 projects.map((item, index) => (
-                                    <ProjeectItem
+                                    <ProjectItem
                                         key={index}
                                         src={item.image}
                                         title={item.title}

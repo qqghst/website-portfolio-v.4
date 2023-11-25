@@ -15,7 +15,6 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title, tools, showLine }
     const isMobile = width < 768;
 
     const [showTechStack, setShowTechStack] = useState<boolean>(false);
-    // const [showLine, setShowLine] = useState<boolean>(false)
 
     const tl = useRef<gsap.core.Timeline | null>(null);
 

@@ -1,8 +1,7 @@
 .project {
     &__container {
         overflow: hidden;
-        // background-color: black;
-        padding-top: 240px;
+        padding-top: 15vw; //240px; 1600
 
         .scrollSection {
             height: 100vh;
@@ -20,7 +19,6 @@
                 align-items: center;
                 position: absolute;
                 z-index: -1;
-                // transform: translateX(-40%);
                 white-space: nowrap;
 
                 span {

@@ -16,5 +16,4 @@ const About: React.FC = () => {
     );
 };
 
-// export default About;
 export default React.memo(About);

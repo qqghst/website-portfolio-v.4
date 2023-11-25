@@ -2,7 +2,6 @@
 
 .whiteBg {
     &__container {
-        // background-color: $color-black;
         min-height: 150vh;
         width: 100%;
 
@@ -24,10 +23,10 @@
     }
 
     div:nth-child(3) {
-        position: absolute;
-        // color: $color-black;
         font-size: 19.2px;
+        position: absolute;
         left: 16.146vw; //310px
+        transform: translateY(15vw); //240px
         z-index: 11;
     }
 }

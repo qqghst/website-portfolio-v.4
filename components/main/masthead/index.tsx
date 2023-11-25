@@ -6,7 +6,7 @@ import Title from '@/ui/masthead/title';
 import MobileButton from '@/ui/masthead/mobile-button';
 import MouseBlur from '@/ui/masthead/mouse-blur';
 
-const Masthead = () => {
+const Masthead: React.FC = () => {
     return (
         <MouseBlur>
             <div className={styles.masthead}>
@@ -27,4 +27,4 @@ const Masthead = () => {
     );
 };
 
-export default Masthead;
+export default React.memo(Masthead);

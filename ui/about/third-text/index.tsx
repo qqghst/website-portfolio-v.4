@@ -35,7 +35,6 @@ const ThirdText: React.FC = () => {
                             scrub: 0.9,
                             start: 'top center',
                             end: 'bottom center',
-                            // end: "+=100%",
                         },
                     }
                 );

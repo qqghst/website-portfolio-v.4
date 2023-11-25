@@ -5,7 +5,6 @@ import styles from './styles.module.scss';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
-import ButtonBorder from '@/ui/button-border';
 
 const SecondText: React.FC = () => {
     const tl = useRef<gsap.core.Timeline | null>(null);
@@ -26,7 +25,6 @@ const SecondText: React.FC = () => {
                     trigger: textRef.current,
                     start: 'top bottom-=120px',
                     toggleActions: 'play none none none',
-                    markers: true,
                 },
             });
 

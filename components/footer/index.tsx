@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import Title from '@/ui/footer/title';
-import PostFooter from '@/ui/footer/post-footer';
 import MobileButton from '@/ui/masthead/mobile-button';
 
 const Footer: React.FC = () => {

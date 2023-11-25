@@ -43,7 +43,6 @@ const Title: React.FC = () => {
                 stagger: {
                     each: 0.04,
                     amount: 1.6,
-                    // start: 0.8,
                 },
                 ease: 'power3.out',
             }
@@ -53,7 +52,6 @@ const Title: React.FC = () => {
             gradientRef.current,
             { opacity: 0 },
             { opacity: 1, duration: 1.2, delay: '-0.6' }
-            // '>'
         );
 
         return () => {

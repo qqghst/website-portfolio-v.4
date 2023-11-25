@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect } from 'react';
 import Intro from '@/components/main/intro';
 import Outro from '@/components/main/outro';
@@ -14,8 +13,9 @@ export default function Home() {
             const locomotiveScroll = new LocomotiveScroll();
         })();
     }, []);
+
     return (
-        <main className=''>
+        <main className='overflow-x-hidden'>
             <Intro />
             <TechStack />
             <Outro />

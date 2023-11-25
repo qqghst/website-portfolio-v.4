@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styles from './styles.module.scss';
 import { IProjectsItemProps } from './interface';
 
-const ProjeectItem: React.FC<IProjectsItemProps> = ({
+const ProjectItem: React.FC<IProjectsItemProps> = ({
     title,
     description,
     src,
@@ -48,4 +48,4 @@ const ProjeectItem: React.FC<IProjectsItemProps> = ({
     );
 };
 
-export default ProjeectItem;
+export default ProjectItem;

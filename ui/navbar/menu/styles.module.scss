@@ -108,6 +108,7 @@
             color: $color-black;
             height: 7.143vw; //120px, 1680
             overflow: hidden;
+            line-height: 120%;
 
             @media (max-width: 768px) {
                 height: 14.493vw; //60px, 414
@@ -124,7 +125,7 @@
 
 .block:last-child {
     display: block;
-    color: $gradient-second;
+    color: $color-black;
 }
 
 .letter {
