@@ -63,11 +63,10 @@ const Title: React.FC = () => {
                 duration: 1,
                 scrollTrigger: {
                     trigger: firstLineRef.current,
-                    // start: '-64% 16%',
+
                     start: isMobile ? 'top 8%' : '-64% 16%',
                     end: 'bottom top',
                     scrub: 1,
-                    markers: true
                 },
             }
         );
@@ -84,7 +83,6 @@ const Title: React.FC = () => {
                     start: isMobile ? 'top 6%' : '-64% 24%',
                     end: 'bottom top',
                     scrub: 1,
-                    markers: true,
                 },
             }
         );
@@ -101,7 +99,6 @@ const Title: React.FC = () => {
                     start: isMobile ? 'top 4%' : '-64% 32%',
                     end: 'bottom top',
                     scrub: 1,
-                    markers: true,
                 },
             }
         );

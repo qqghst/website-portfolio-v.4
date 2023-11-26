@@ -10,6 +10,7 @@ import gsap from 'gsap';
 const Navbar: React.FC = () => {
     const tl = useRef<gsap.core.Timeline | null>(null);
 
+    const navbarRef = useRef<HTMLDivElement>(null);
     const logoRef = useRef<HTMLDivElement>(null);
     const timeRef = useRef<HTMLDivElement>(null);
     const menuRef = useRef<HTMLDivElement>(null);
@@ -23,6 +24,14 @@ const Navbar: React.FC = () => {
             { opacity: 1, duration: 0.8, delay: 2, stagger: 0.45 }
         );
 
+        tl.current.to(navbarRef.current, {
+            zIndex: 0,
+            scrollTrigger: {
+                trigger: menuRef.current,
+                start: '+=1000px top',
+            },
+        });
+
         return () => {
             tl.current?.kill();
         };
@@ -30,7 +39,9 @@ const Navbar: React.FC = () => {
 
     return (
         <div className={styles.navbar}>
-            <div className={styles.navbar__container}>
+            <div
+                className={styles.navbar__container}
+                ref={navbarRef}>
                 <div ref={logoRef}>
                     <Logo />
                 </div>

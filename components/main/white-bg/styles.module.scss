@@ -18,8 +18,15 @@
     }
 
     .imgMobile {
+        // margin: 0 auto;
         width: 81.75vw;
         height: auto;
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
     }
 
     h1 {

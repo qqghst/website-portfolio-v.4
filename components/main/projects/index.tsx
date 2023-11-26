@@ -83,7 +83,7 @@ const Projects: React.FC = () => {
                         <div
                             ref={sectionRef}
                             className={styles.scrollSection}>
-                            <div className={styles.containerSpan}>
+                            <div className={`hide-on-mobile ${styles.containerSpan}`}>
                                 <span ref={spanRef}>
                                     FIRSTFIRSTFIRSTFIRSTFIRSTFIRST
                                 </span>

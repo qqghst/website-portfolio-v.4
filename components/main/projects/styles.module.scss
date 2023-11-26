@@ -2,7 +2,6 @@
     &__container {
         overflow: hidden;
         padding-top: 15vw; //240px; 1600
-        z-index: 10000000;
 
         .scrollSection {
             height: 100vh;
@@ -40,25 +39,25 @@
         &__container {
             overflow: hidden;
             padding-top: 0vw; //240px; 1600
-    
+
             .scrollSection {
                 height: 100vh;
                 width: 400vw;
                 display: flex;
                 flex-direction: row;
                 position: relative;
-    
+
                 .containerSpan {
                     height: 100vh;
-                    width: 400vw;
-    
-                    display: flex;
+                    width: 100vw;
+
+                    display: none;
                     justify-content: center;
                     align-items: center;
                     position: absolute;
                     z-index: -1;
                     white-space: nowrap;
-    
+
                     span {
                         font-size: 600px;
                         font-weight: 700;
@@ -71,5 +70,4 @@
             }
         }
     }
-    
 }
