@@ -13,7 +13,7 @@ const FirstText: React.FC = () => {
     const secondTextRef = useRef<HTMLDivElement>(null);
 
     const { width } = useWindowSize();
-    const isMobile = width < 768;
+    const isMobile = width !== undefined && width < 768;
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
