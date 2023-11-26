@@ -12,8 +12,13 @@
         overflow-x: hidden;
     }
 
-    img {
+    .img {
         width: 43.75vw;
+        height: auto;
+    }
+
+    .imgMobile {
+        width: 81.75vw;
         height: auto;
     }
 

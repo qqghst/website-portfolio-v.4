@@ -9,25 +9,22 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 const WhiteBg: React.FC = () => {
     const tl = useRef<gsap.core.Timeline | null>(null);
-    
+
     const h1Ref = useRef<HTMLHeadingElement>(null);
     const imgRef = useRef<HTMLImageElement>(null);
-    
+
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         tl.current = gsap.timeline();
 
-        tl.current.to(
-            h1Ref.current,
-            {
-                scrollTrigger: {
-                    trigger: h1Ref.current,
-                    start: '-=400 center',
-                    scrub: 1,
-                },
-                scale: 4,
-            }
-        );
+        tl.current.to(h1Ref.current, {
+            scrollTrigger: {
+                trigger: h1Ref.current,
+                start: '-=400 center',
+                scrub: 1,
+            },
+            scale: 4,
+        });
 
         return () => {
             tl.current?.kill();
@@ -38,6 +35,15 @@ const WhiteBg: React.FC = () => {
         <div className={styles.whiteBg}>
             <div className={styles.whiteBg__container}>
                 <Image
+                    className={`${styles.imgMobile} hide-on-desktop`}
+                    ref={imgRef}
+                    src='/white-bg/test.jpeg'
+                    alt='1'
+                    width={1400 / 2}
+                    height={1400 / 2}
+                />
+                <Image
+                    className={`${styles.img}`}
                     ref={imgRef}
                     src='/white-bg/test.jpeg'
                     alt='1'
