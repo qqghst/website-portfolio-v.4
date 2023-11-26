@@ -5,6 +5,7 @@ import styles from './styles.module.scss';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import SplitType from 'split-type';
+import useWindowSize from '@/hooks/useWindowSize';
 
 const Title: React.FC = () => {
     const tl = useRef<gsap.core.Timeline | null>(null);
@@ -13,6 +14,9 @@ const Title: React.FC = () => {
     const secondLineRef = useRef<HTMLSpanElement | null>(null);
     const thirdLineRef = useRef<HTMLSpanElement | null>(null);
     const gradientRef = useRef<HTMLSpanElement | null>(null);
+
+    const { width } = useWindowSize();
+    const isMobile = width < 768;
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -59,9 +63,11 @@ const Title: React.FC = () => {
                 duration: 1,
                 scrollTrigger: {
                     trigger: firstLineRef.current,
-                    start: '-64% 16%',
+                    // start: '-64% 16%',
+                    start: isMobile ? 'top 8%' : '-64% 16%',
                     end: 'bottom top',
                     scrub: 1,
+                    markers: true
                 },
             }
         );
@@ -74,9 +80,11 @@ const Title: React.FC = () => {
                 duration: 1,
                 scrollTrigger: {
                     trigger: secondLineRef.current,
-                    start: '-64% 24%',
+                    // start: '-64% 24%',
+                    start: isMobile ? 'top 6%' : '-64% 24%',
                     end: 'bottom top',
                     scrub: 1,
+                    markers: true,
                 },
             }
         );
@@ -89,9 +97,11 @@ const Title: React.FC = () => {
                 duration: 1,
                 scrollTrigger: {
                     trigger: thirdLineRef.current,
-                    start: '-64% 32%',
+                    // start: '-64% 32%',
+                    start: isMobile ? 'top 4%' : '-64% 32%',
                     end: 'bottom top',
                     scrub: 1,
+                    markers: true,
                 },
             }
         );
@@ -99,7 +109,7 @@ const Title: React.FC = () => {
         return () => {
             tl.current?.kill();
         };
-    }, []);
+    }, [isMobile]);
     return (
         <>
             <span

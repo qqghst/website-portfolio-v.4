@@ -27,34 +27,63 @@
 
 import { useState, useEffect } from 'react';
 
-interface Size {
-    width: number | undefined;
-    height?: number | undefined;
-}
+const isSSR = typeof window === 'undefined';
 
 const useWindowSize = () => {
-    const [size, setSize] = useState<Size>({
-        width: undefined,
-        height: undefined,
+    const [size, setSize] = useState({
+        width: isSSR ? 0 : window.innerWidth,
     });
 
     useEffect(() => {
+        if (isSSR) return;
+
         const handleResize = () => {
-            setSize({
-                width: window.innerWidth,
-                height: window.innerHeight,
-            });
+            setSize({ width: window.innerWidth });
         };
 
-        if (typeof window !== 'undefined') {
-            window.addEventListener('resize', handleResize);
-            handleResize();
-            
-            return () => window.removeEventListener('resize', handleResize);
-        }
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     return size;
 };
 
 export default useWindowSize;
+
+// 'use client';
+
+// import { useState, useEffect } from 'react';
+
+// interface Size {
+//     width: number | undefined;
+//     height?: number | undefined;
+// }
+
+// const useWindowSize = () => {
+//     const [size, setSize] = useState<Size>({
+//         width: undefined,
+//         height: undefined,
+//     });
+
+//     useEffect(() => {
+//         const handleResize = () => {
+//             setSize({
+//                 width: window.innerWidth,
+//                 height: window.innerHeight,
+//             });
+//         };
+
+//         if (typeof window !== 'undefined') {
+//             window.addEventListener('resize', handleResize);
+//             handleResize();
+
+//             return () => window.removeEventListener('resize', handleResize);
+//         }
+//     }, []);
+
+//     return size;
+// };
+
+// export default useWindowSize;

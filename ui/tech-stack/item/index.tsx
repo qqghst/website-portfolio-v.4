@@ -12,7 +12,7 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title, tools, showLine }
     gsap.registerPlugin(ScrollTrigger);
 
     const { width } = useWindowSize();
-    const isMobile = width !== undefined && width < 768;
+    const isMobile = width < 768;
 
     const [showTechStack, setShowTechStack] = useState<boolean>(false);
 
