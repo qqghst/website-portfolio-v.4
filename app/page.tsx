@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Intro from '@/components/main/intro';
 import Outro from '@/components/main/outro';
 import TechStack from '@/components/main/tech-stack';
+import Masthead from '@/components/main/masthead';
 
 export default function Home() {
     useEffect(() => {
@@ -16,9 +17,10 @@ export default function Home() {
 
     return (
         <main className='overflow-x-hidden'>
-            <Intro />
+            <Masthead />
+            {/* <Intro />
             <TechStack />
-            <Outro />
+            <Outro /> */}
         </main>
     );
 }

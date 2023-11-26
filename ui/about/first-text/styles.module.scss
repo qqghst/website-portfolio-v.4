@@ -7,7 +7,9 @@
         justify-content: start;
         align-items: start;
 
-        padding: 12.5vw 4vw; //200px 64px; 1600
+        padding: 0vw 4vw; //200px 64px; 1600
+        padding-bottom: 35.5vw; //200px; 1600
+        padding-top: 12.5vw; //200px; 1600
 
         div:nth-child(1) {
             display: flex;
@@ -41,14 +43,16 @@
             flex-direction: column;
             justify-content: start;
             align-items: start;
-
-            padding: 0vw 4.831vw; //200px 20px; 414
             gap: 3.865vw; //16px, 414
+
+            padding: 0vw 4.831vw; //0 20px; 414
+            padding-top: 48.309vw; //200px; 414;
+            padding-bottom: 48.309vw; //200px; 414;
 
             div:nth-child(1) {
                 display: flex;
                 flex-direction: column;
-                gap: 3.865vw; //16px, 414
+                gap: 4.831vw; //20px, 414
 
                 h3 {
                     white-space: normal;

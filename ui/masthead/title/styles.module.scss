@@ -1,9 +1,17 @@
 .margin2 {
     margin-right: 7.938vw; //127px, 1600
+
+    @media (max-width: 768px) {
+        margin-right: 0;
+    }
 }
 
 .margin3 {
     margin-right: 15.25vw; //244px, 1600
+
+    @media (max-width: 768px) {
+        margin-right: 0;
+    }
 }
 
 .scrolling {

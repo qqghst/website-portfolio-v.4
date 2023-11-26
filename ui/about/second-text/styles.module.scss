@@ -7,7 +7,7 @@
         align-items: start;
 
         background-color: $color-black;
-        padding: 25vw 0; //400px 0
+        padding-bottom: 25vw; //400px 0
         overflow-x: hidden;
 
         .textContainer {
@@ -32,7 +32,8 @@
             align-items: start;
 
             background-color: $color-black;
-            padding: 28.986vw 4.831vw; //120px 20px; 414
+            padding: 0vw 4.831vw; //0 20px; 414
+            padding-bottom: 48.309vw; //200px; 414;
 
             .textContainer {
                 white-space: normal;
@@ -459,6 +460,7 @@
     span {
         animation: paths 5s step-end infinite;
         animation-delay: 3s;
+
         @media (max-width: 768px) {
             animation-delay: 0s;
         }
@@ -468,6 +470,7 @@
         animation: paths 5s step-end infinite, opacity 5s step-end infinite,
             font 8s step-end infinite, movement 10s step-end infinite;
         animation-delay: 3s;
+
         @media (max-width: 768px) {
             animation-delay: 0s;
         }
@@ -477,6 +480,7 @@
         animation: paths 5s step-end infinite, opacity 5s step-end infinite,
             font 7s step-end infinite, movement 8s step-end infinite;
         animation-delay: 3s;
+
         @media (max-width: 768px) {
             animation-delay: 0s;
         }

@@ -4,9 +4,9 @@
     .bigText {
         &__container {
             background-color: $color-black;
-            padding-top: 80px;
             padding-right: 4vw; //64px; 1600
             padding-left: 4vw; //64px; 1600
+            padding-bottom: 25vw;
 
             div:nth-child(1) {
                 max-width: 46vw; //736px; 1600
@@ -18,8 +18,9 @@
 @media (max-width: 768px) {
     .bigText {
         &__container {
-            background-color: black;
-            padding: 0 4.831vw; //0 20px, 414
+            background-color: $color-black;
+            padding: 0vw 4.831vw; //0 20px; 414
+            padding-bottom: 48.309vw; //200px; 414;
 
             div:nth-child(1) {
                 max-width: 67.633vw; //280px; 414
