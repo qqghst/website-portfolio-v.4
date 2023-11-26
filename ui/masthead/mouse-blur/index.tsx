@@ -24,7 +24,7 @@ const MouseBlur: React.FC<IMouseBlurProps> = ({ children }) => {
         };
     }, [blobRef]);
     return (
-        <div>
+        <div className={styles.blobContainer}>
             <div
                 className={`${styles.blob}`}
                 ref={blobRef}

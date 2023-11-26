@@ -151,14 +151,17 @@ const Menu: React.FC = () => {
             <div className={styles.overlay}>
                 {isMobile ? (
                     <svg
-                        viewBox='0 0 100% 100%'
+                        viewBox='2 2 500 300'
+                        preserveAspectRatio='none'
                         style={{ width: '100vw', height: '100vh' }}>
                         <path
                             ref={pathRef}
                             d='M0 2S175 1 500 1s500 1 500 1V0H0Z'></path>
                     </svg>
                 ) : (
-                    <svg viewBox='0 0 1000 1000'>
+                    <svg
+                        viewBox='2 2 1000 1000'
+                        preserveAspectRatio='none'>
                         <path
                             ref={pathRef}
                             d='M0 2S175 1 500 1s500 1 500 1V0H0Z'></path>
