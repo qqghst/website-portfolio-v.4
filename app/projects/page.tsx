@@ -1,7 +1,6 @@
-import { PageWrapper } from '@/components/page-wrapper/page-wrapper';
 import React from 'react';
 
-const Projects: React.FC = () => {
+const ProjectsRouting: React.FC = () => {
     return (
         <div className='min-h-screen flex justify-center items-center bg-black'>
             <div className='text-white text-[16px]'>
@@ -11,4 +10,4 @@ const Projects: React.FC = () => {
     );
 };
 
-export default Projects;
+export default ProjectsRouting;
