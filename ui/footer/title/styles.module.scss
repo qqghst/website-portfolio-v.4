@@ -8,6 +8,7 @@
 
 .margin3 {
     transform: translateX(-2.563vw); //-41px, 1600
+    z-index: 1000;
 
     @media (max-width: 768px) {
         transform: translateX(0);

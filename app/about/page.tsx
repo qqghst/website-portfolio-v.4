@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AboutRouing: React.FC = () => {
+const About: React.FC = () => {
     return (
         <div className='min-h-screen flex justify-center items-center bg-black'>
             <div className='text-white text-[16px]'>
@@ -10,4 +10,4 @@ const AboutRouing: React.FC = () => {
     );
 };
 
-export default AboutRouing;
+export default About;

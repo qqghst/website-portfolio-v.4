@@ -2,6 +2,7 @@
     &__container {
         overflow: hidden;
         padding-top: 15vw; //240px; 1600
+        z-index: 10000000;
 
         .scrollSection {
             height: 100vh;

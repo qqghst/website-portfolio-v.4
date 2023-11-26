@@ -19,7 +19,7 @@
 
     h1 {
         position: absolute;
-        z-index: 10;
+        z-index: 100;
     }
 
     div:nth-child(3) {
@@ -27,6 +27,6 @@
         position: absolute;
         left: 16.146vw; //310px
         transform: translateY(15vw); //240px
-        z-index: 11;
+        z-index: 100;
     }
 }

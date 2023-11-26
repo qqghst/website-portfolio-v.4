@@ -1,8 +1,10 @@
 @import '../../../styles/variables';
 
 .blobContainer {
-    overflow: hidden; 
-    position: relative; 
+    @media (max-width: 768px) {
+        overflow: hidden;
+    }
+    position: relative;
 
     .blob {
         background-color: $color-white;
@@ -25,7 +27,6 @@
         opacity: 0.65;
         filter: blur(10vmax);
         z-index: 1;
-
     }
 
     @keyframes rotate {
