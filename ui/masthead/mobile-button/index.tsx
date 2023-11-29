@@ -14,7 +14,7 @@ const MobileButton: React.FC<IMobileButtonProps> = ({ color, background }) => {
         tl.current.fromTo(
             mobileButtonRef.current,
             { opacity: 0, x: -32 },
-            { opacity: 1, x: 0, duration: 1, delay: 1.8 }
+            { opacity: 1, x: 0, duration: 1, delay: 1.8, autoAlpha: 1 }
         );
 
         return () => {
