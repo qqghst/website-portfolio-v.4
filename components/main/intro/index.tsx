@@ -20,7 +20,7 @@ const Intro: React.FC = () => {
         if (!containerRef.current || !mastheadRef.current || !aboutRef.current)
             return;
 
-        tl.current = gsap.timeline({ delay: 1 });
+        tl.current = gsap.timeline({ delay: 0 });
 
         tl.current.fromTo(
             containerRef.current,
