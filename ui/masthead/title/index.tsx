@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useLayoutEffect } from 'react';
 import styles from './styles.module.scss';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -18,7 +18,7 @@ const Title: React.FC = () => {
     const { width } = useWindowSize();
     const isMobile = width < 768;
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         tl.current = gsap.timeline();
 
