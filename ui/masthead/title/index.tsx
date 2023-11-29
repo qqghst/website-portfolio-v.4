@@ -22,44 +22,21 @@ const Title: React.FC = () => {
         gsap.registerPlugin(ScrollTrigger);
         tl.current = gsap.timeline();
 
-        // const span1 = new SplitType(firstLineRef.current!, {
-        //     types: 'chars',
-        //     lineClass: 'lineParent',
-        // });
-        // const span2 = new SplitType(secondLineRef.current!, {
-        //     types: 'chars',
-        //     lineClass: 'lineParent',
-        // });
-        // const span3 = new SplitType(thirdLineRef.current!, {
-        //     types: 'chars',
-        //     lineClass: 'lineParent',
-        // });
-
-        const splitParent1 = new SplitType(firstLineRef.current!, {
+        const span1 = new SplitType(firstLineRef.current!, {
             types: 'chars',
-            lineClass: 'lineParent',
+            charClass: 'charClass',
         });
-        const splitParent2 = new SplitType(secondLineRef.current!, {
+        const span2 = new SplitType(secondLineRef.current!, {
             types: 'chars',
-            lineClass: 'lineParent',
+            charClass: 'charClass',
         });
-        const splitParent3 = new SplitType(thirdLineRef.current!, {
+        const span3 = new SplitType(thirdLineRef.current!, {
             types: 'chars',
-            lineClass: 'lineParent',
-        });
-
-        const split1 = new SplitType(splitParent1?.chars ?? [], {
-            types: 'chars',
-        });
-        const split2 = new SplitType(splitParent2?.chars ?? [], {
-            types: 'chars',
-        });
-        const split3 = new SplitType(splitParent3?.chars ?? [], {
-            types: 'chars',
+            charClass: 'charClass',
         });
 
         tl.current.fromTo(
-            [split1.chars, split2.chars, split3.chars],
+            [span1.chars, span2.chars, span3.chars],
             { opacity: 0, y: 32 },
             {
                 duration: 0.8,
