@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
         tl.current.fromTo(
             [logoRef.current, timeRef.current, menuRef.current],
             { opacity: 0 },
-            { opacity: 1, duration: 0.8, delay: 2, stagger: 0.45 }
+            { opacity: 1, duration: 0.8, delay: 2, stagger: 0.45, autoAlpha: 1 }
         );
 
         tl.current.to(navbarRef.current, {
@@ -42,15 +42,19 @@ const Navbar: React.FC = () => {
             <div
                 className={styles.navbar__container}
                 ref={navbarRef}>
-                <div ref={logoRef}>
+                <div
+                    className={styles.logo}
+                    ref={logoRef}>
                     <Logo />
                 </div>
                 <div
-                    className='hide-on-mobile -translate-x-[3.274vw]'
+                    className={`${styles.time} hide-on-mobile -translate-x-[3.274vw]`}
                     ref={timeRef}>
                     <Time />
                 </div>
-                <div ref={menuRef}>
+                <div
+                    className={styles.menu}
+                    ref={menuRef}>
                     <Menu />
                 </div>
             </div>

@@ -9,5 +9,19 @@
         position: absolute;
         z-index: 100;
         width: 100%;
+
+  
+
+        .logo {
+            visibility: hidden;
+        }
+
+        .time {
+            visibility: hidden;
+        }
+
+        .menu {
+            visibility: hidden;
+        }
     }
 }
