@@ -17,9 +17,10 @@ export default function Home() {
 
     return (
         <main className='overflow-x-hidden'>
-            <Intro />
+            <Masthead />
+            {/* <Intro />
             <TechStack />
-            <Outro />
+            <Outro /> */}
         </main>
     );
 }
