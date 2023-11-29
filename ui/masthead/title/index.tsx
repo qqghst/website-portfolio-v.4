@@ -35,6 +35,13 @@ const Title: React.FC = () => {
             charClass: 'charClass',
         });
 
+        tl.current.to(
+            [firstLineRef.current, secondLineRef.current, thirdLineRef.current],
+            {
+                autoAlpha: 1,
+            }
+        );
+
         tl.current.fromTo(
             [span1.chars, span2.chars, span3.chars],
             { opacity: 0, y: 32 },
@@ -51,7 +58,7 @@ const Title: React.FC = () => {
         tl.current.fromTo(
             gradientRef.current,
             { opacity: 0 },
-            { opacity: 1, duration: 1.8, delay: '-1' }
+            { opacity: 1, duration: 1.8, delay: '-1', autoAlpha: 1 }
             // '<'
         );
 
@@ -112,22 +119,22 @@ const Title: React.FC = () => {
         <>
             <span
                 ref={firstLineRef}
-                className='h1 '>
+                className='h1 invisible '>
                 this is a catchy title
             </span>
             <span
                 ref={secondLineRef}
-                className={`h1  ${styles.margin2}`}>
+                className={`h1 invisible ${styles.margin2}`}>
                 all the fun below
             </span>
             <span
                 ref={thirdLineRef}
-                className={`h1  ${styles.margin3}`}>
+                className={`h1 invisible ${styles.margin3}`}>
                 keep <span style={{ opacity: 0 }}>scrolling</span>
             </span>
             <span
                 ref={gradientRef}
-                className={`h1  gradient ${styles.scrolling}`}>
+                className={`h1 invisible gradient ${styles.scrolling}`}>
                 scrolling.
             </span>
         </>
