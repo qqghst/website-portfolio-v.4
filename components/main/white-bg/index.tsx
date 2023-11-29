@@ -37,7 +37,7 @@ const WhiteBg: React.FC = () => {
                 <Image
                     className={`${styles.imgMobile} hide-on-desktop`}
                     ref={imgRef}
-                    src='/white-bg/test.jpeg'
+                    src='/white-bg/img-scroll.webp'
                     alt='1'
                     width={1400 / 2}
                     height={1400 / 2}
@@ -45,7 +45,7 @@ const WhiteBg: React.FC = () => {
                 <Image
                     className={`${styles.img}`}
                     ref={imgRef}
-                    src='/white-bg/test.jpeg'
+                    src='/white-bg/img-scroll.webp'
                     alt='1'
                     width={1400 / 2}
                     height={1400 / 2}

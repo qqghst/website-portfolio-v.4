@@ -12,7 +12,7 @@ const Masthead: React.FC = () => {
             <div className={styles.masthead}>
                 <div className={styles.masthead__container}>
                     <Title />
-                    {/* <div className={`hide-on-mobile ${styles.svg}`}>
+                    <div className={`hide-on-mobile ${styles.svg}`}>
                         <Image
                             src='/masthead/rainbow.svg'
                             width={0}
@@ -20,7 +20,7 @@ const Masthead: React.FC = () => {
                             alt='svg'
                         />
                     </div>
-                    <MobileButton /> */}
+                    <MobileButton />
                 </div>
             </div>
         </MouseBlur>
