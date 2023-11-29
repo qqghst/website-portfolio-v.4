@@ -62,7 +62,7 @@ const Intro: React.FC = () => {
         };
     }, []);
     return (
-        <div ref={containerRef}>
+        <div ref={containerRef} style={{backgroundColor: 'black'}}>
             <div ref={mastheadRef}>
                 <Masthead />
             </div>

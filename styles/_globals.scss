@@ -1,8 +1,3 @@
-.lineParent {
-    overflow: hidden;
-    font-kerning: none;
-}
-
 //пока что тут пусть будет cssruleplugin, с модульными стилями не разобрался
 span#test::before {
     content: '';
