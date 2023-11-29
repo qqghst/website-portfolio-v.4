@@ -35,12 +35,18 @@ const Title: React.FC = () => {
             lineClass: 'lineParent',
         });
 
+        tl.current.set([span1.chars, span2.chars, span3.chars], {
+            opacity: 0,
+            autoAlpha: 0,
+        });
+
         tl.current.fromTo(
             [span1.chars, span2.chars, span3.chars],
             { opacity: 0, y: 32 },
             {
                 duration: 0.8,
                 opacity: 1,
+                autoAlpha: 1,
                 y: 0,
                 stagger: 0.04,
                 ease: 'power3.out',
@@ -106,27 +112,27 @@ const Title: React.FC = () => {
         return () => {
             tl.current?.kill();
         };
-    }, [isMobile]);
+    }, []);
     return (
         <>
             <span
                 ref={firstLineRef}
-                className='h1'>
+                className='h1 '>
                 this is a catchy title
             </span>
             <span
                 ref={secondLineRef}
-                className={`h1 ${styles.margin2}`}>
+                className={`h1  ${styles.margin2}`}>
                 all the fun below
             </span>
             <span
                 ref={thirdLineRef}
-                className={`h1 ${styles.margin3}`}>
+                className={`h1  ${styles.margin3}`}>
                 keep <span style={{ opacity: 0 }}>scrolling</span>
             </span>
             <span
                 ref={gradientRef}
-                className={`h1 gradient ${styles.scrolling}`}>
+                className={`h1  gradient ${styles.scrolling}`}>
                 scrolling.
             </span>
         </>
