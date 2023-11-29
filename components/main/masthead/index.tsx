@@ -8,13 +8,22 @@ import MouseBlur from '@/ui/masthead/mouse-blur';
 
 const Masthead: React.FC = () => {
     return (
-        <div className={styles.masthead}>
-            <div className={styles.masthead__container}>
-                <Title />
-            
-                <MobileButton />
+        <MouseBlur>
+            <div className={styles.masthead}>
+                <div className={styles.masthead__container}>
+                    <Title />
+                    <div className={`hide-on-mobile ${styles.svg}`}>
+                        <Image
+                            src='/masthead/rainbow.svg'
+                            width={0}
+                            height={0}
+                            alt='svg'
+                        />
+                    </div>
+                    <MobileButton />
+                </div>
             </div>
-        </div>
+        </MouseBlur>
     );
 };
 
