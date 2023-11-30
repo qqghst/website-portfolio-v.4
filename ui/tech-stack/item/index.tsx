@@ -8,7 +8,11 @@ import { ITechStackItemProps } from './interface';
 import useWindowSize from '@/hooks/useWindowSize';
 import Line from '../line';
 
-const TechStackItem: React.FC<ITechStackItemProps> = ({ title, tools, showLine }) => {
+const TechStackItem: React.FC<ITechStackItemProps> = ({
+    title,
+    tools,
+    showLine,
+}) => {
     gsap.registerPlugin(ScrollTrigger);
 
     const { width } = useWindowSize();
@@ -52,17 +56,20 @@ const TechStackItem: React.FC<ITechStackItemProps> = ({ title, tools, showLine }
 
     //использую здесь, а не в функции toggleTechStack, потому что опасити указано в scss и чтобы оно меняло опасити нужен useeffect
     useEffect(() => {
-        gsap.to(toolsRef.current, {
-            opacity: showTechStack ? 1 : 0,
-            duration: 1,
-            ease: 'power2.out',
-            delay: 0.6,
-            stagger: 0.7,
-        });
+        if (toolsRef.current) {
+            gsap.to(toolsRef.current, {
+                opacity: showTechStack ? 1 : 0,
+                duration: 1,
+                ease: 'power2.out',
+                delay: 0.6,
+                stagger: 0.7,
+            });
+        }
     }, [showTechStack]);
 
     useEffect(() => {
-        if (!titleRef.current || !clickMeRef.current || !arrowRef.current) return;
+        if (!titleRef.current || !clickMeRef.current || !arrowRef.current)
+            return;
         tl.current = gsap.timeline();
 
         const split = new SplitType(titleRef.current, { types: 'lines' });
