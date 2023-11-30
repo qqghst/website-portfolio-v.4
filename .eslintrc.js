@@ -35,5 +35,11 @@ module.exports = {
 		],
 		'@typescript-eslint/no-explicit-any': 'warn',
 		'@typescript-eslint/no-unused-vars': 'warn',
+		'react/react-in-jsx-scope': 'off',
+	},
+	settings: {
+		react: {
+			version: 'detect',
+		},
 	},
 };
