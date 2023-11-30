@@ -1,3 +1,3 @@
 export interface IMouseBlurProps {
-    children: React.ReactNode;
+	children: React.ReactNode;
 }

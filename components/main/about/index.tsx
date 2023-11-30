@@ -5,15 +5,15 @@ import SecondText from '@/ui/about/second-text';
 import ThirdText from '@/ui/about/third-text';
 
 const About: React.FC = () => {
-    return (
-        <div className={`${styles.secondText}`}>
-            <div className={styles.seconeText__container}>
-                <FirstText />
-                <SecondText />
-                <ThirdText />
-            </div>
-        </div>
-    );
+	return (
+		<div className={`${styles.secondText}`}>
+			<div className={styles.seconeText__container}>
+				<FirstText />
+				<SecondText />
+				<ThirdText />
+			</div>
+		</div>
+	);
 };
 
 export default React.memo(About);

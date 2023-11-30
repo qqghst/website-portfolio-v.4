@@ -8,72 +8,70 @@ import WhiteBg from '../white-bg';
 import About from '../about';
 
 const Intro: React.FC = () => {
-    const tl = useRef<gsap.core.Timeline | null>(null);
-    
-    const containerRef = useRef<HTMLDivElement>(null);
-    const mastheadRef = useRef<HTMLDivElement>(null);
-    const whiteBgRef = useRef<HTMLDivElement>(null);
-    const aboutRef = useRef<HTMLDivElement>(null);
-    
-    useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        if (!containerRef.current || !mastheadRef.current || !aboutRef.current)
-            return;
+	const tl = useRef<gsap.core.Timeline | null>(null);
 
-        tl.current = gsap.timeline({ delay: 0 });
+	const containerRef = useRef<HTMLDivElement>(null);
+	const mastheadRef = useRef<HTMLDivElement>(null);
+	const whiteBgRef = useRef<HTMLDivElement>(null);
+	const aboutRef = useRef<HTMLDivElement>(null);
 
-        tl.current.fromTo(
-            containerRef.current,
-            {
-                backgroundColor: 'black',
-            },
-            {
-                duration: 1,
-                ease: 'none',
-                backgroundColor: 'white',
-                scrollTrigger: {
-                    trigger: mastheadRef.current,
-                    start: 'bottom center',
-                    scrub: 1,
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+		if (!containerRef.current || !mastheadRef.current || !aboutRef.current)
+			return;
 
-                },
-            }
-        );
+		tl.current = gsap.timeline({ delay: 0 });
 
-        tl.current.fromTo(
-            containerRef.current,
-            {},
-            {
-                duration: 1,
-                ease: 'none',
-                backgroundColor: 'black',
-                scrollTrigger: {
-                    trigger: aboutRef.current,
-                    start: '-=100px bottom',
-                    end: '+=500',
-                    scrub: 1,
+		tl.current.fromTo(
+			containerRef.current,
+			{
+				backgroundColor: 'black',
+			},
+			{
+				duration: 1,
+				ease: 'none',
+				backgroundColor: 'white',
+				scrollTrigger: {
+					trigger: mastheadRef.current,
+					start: 'bottom center',
+					scrub: 1,
+				},
+			},
+		);
 
-                },
-            }
-        );
+		tl.current.fromTo(
+			containerRef.current,
+			{},
+			{
+				duration: 1,
+				ease: 'none',
+				backgroundColor: 'black',
+				scrollTrigger: {
+					trigger: aboutRef.current,
+					start: '-=100px bottom',
+					end: '+=500',
+					scrub: 1,
+				},
+			},
+		);
 
-        return () => {
-            tl.current?.kill();
-        };
-    }, []);
-    return (
-        <div ref={containerRef} style={{backgroundColor: 'black'}}>
-            <div ref={mastheadRef}>
-                <Masthead />
-            </div>
-            <div ref={whiteBgRef}>
-                <WhiteBg />
-            </div>
-            <div ref={aboutRef}>
-                <About />
-            </div>
-        </div>
-    );
+		return () => {
+			tl.current?.kill();
+		};
+	}, []);
+	return (
+		<div ref={containerRef} style={{ backgroundColor: 'black' }}>
+			<div ref={mastheadRef}>
+				<Masthead />
+			</div>
+			<div ref={whiteBgRef}>
+				<WhiteBg />
+			</div>
+			<div ref={aboutRef}>
+				<About />
+			</div>
+		</div>
+	);
 };
 
 export default React.memo(Intro);

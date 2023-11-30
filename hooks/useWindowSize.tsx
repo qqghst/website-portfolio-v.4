@@ -30,24 +30,24 @@ import { useState, useEffect } from 'react';
 const isSSR = typeof window === 'undefined';
 
 const useWindowSize = () => {
-    const [size, setSize] = useState({
-        width: isSSR ? 0 : window.innerWidth,
-    });
+	const [size, setSize] = useState({
+		width: isSSR ? 0 : window.innerWidth,
+	});
 
-    useEffect(() => {
-        if (isSSR) return;
+	useEffect(() => {
+		if (isSSR) return;
 
-        const handleResize = () => {
-            setSize({ width: window.innerWidth });
-        };
+		const handleResize = () => {
+			setSize({ width: window.innerWidth });
+		};
 
-        window.addEventListener('resize', handleResize);
-        handleResize();
+		window.addEventListener('resize', handleResize);
+		handleResize();
 
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
 
-    return size;
+	return size;
 };
 
 export default useWindowSize;

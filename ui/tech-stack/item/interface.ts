@@ -1,5 +1,5 @@
 export interface ITechStackItemProps {
-    title: string;
-    tools: string[];
-    showLine: boolean;
+	title: string;
+	tools: string[];
+	showLine: boolean;
 }
