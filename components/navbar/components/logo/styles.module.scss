@@ -1,0 +1,12 @@
+@import '../../../../styles/variables';
+
+.logo {
+    &__container {
+        z-index: 3;
+        span {
+            font-size: 16px;
+            font-weight: 600;
+            color: $color-white;
+        }
+    }
+}

@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import SplitType from 'split-type';
 import { projects } from './data';
-import ProjectItem from '@/ui/projects/item';
+import ProjectItem from './components/project-item';
 
 const Projects: React.FC = () => {
 	const tl = useRef<gsap.core.Timeline | null>(null);

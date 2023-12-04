@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import Title from '@/ui/footer/title';
-import MobileButton from '@/ui/masthead/mobile-button';
+import Title from './components/title';
+import MobileButton from '@/ui/mobile-button';
 
 const Footer: React.FC = () => {
 	return (
@@ -18,4 +18,4 @@ const Footer: React.FC = () => {
 	);
 };
 
-export default Footer;
+export default React.memo(Footer);

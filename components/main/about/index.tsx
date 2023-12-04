@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import FirstText from '@/ui/about/first-text';
-import SecondText from '@/ui/about/second-text';
-import ThirdText from '@/ui/about/third-text';
+import FirstText from './components/first-text';
+import SecondText from './components/second-text';
+import ThirdText from './components/third-text';
 
 const About: React.FC = () => {
 	return (

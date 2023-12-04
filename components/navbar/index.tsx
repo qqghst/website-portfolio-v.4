@@ -2,9 +2,9 @@
 
 import React, { useEffect, useRef } from 'react';
 import styles from './styles.module.scss';
-import Logo from '@/ui/navbar/logo';
-import Time from '@/ui/navbar/time';
-import Menu from '@/ui/navbar/menu';
+import Logo from './components/logo';
+import Time from './components/time';
+import Menu from './components/menu';
 import gsap from 'gsap';
 
 const Navbar: React.FC = () => {
@@ -63,4 +63,4 @@ const Navbar: React.FC = () => {
 	);
 };
 
-export default Navbar;
+export default React.memo(Navbar);

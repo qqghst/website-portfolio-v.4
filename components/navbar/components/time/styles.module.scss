@@ -1,0 +1,10 @@
+@import '../../../../styles/variables';
+
+.time {
+    &__container {
+        z-index: 3;
+        span {
+            color: $color-white;
+        }
+    }
+}

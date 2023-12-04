@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import TechStackItem from '@/ui/tech-stack/item';
+import TechStackItem from './components/project-item';
 import { techStackData } from './data';
 
 const TechStack: React.FC = () => {

@@ -1,0 +1,86 @@
+@import '../../../../../styles/variables';
+
+.techStackItem {
+    position: relative;
+    z-index: 100;
+    cursor: pointer;
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.875vw 2.5vw; //30px 40px; 1600
+
+        @media (max-width: 768px) {
+            padding: 3.831vw 4.831vw;
+        }
+
+        div:nth-child(1) {
+            span {
+                display: flex;
+                width: 45vw; //720px; 1600
+                white-space: nowrap;
+                overflow: hidden;
+                text-align: left;
+                font-weight: 400;
+                position: relative;
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+            }
+        }
+
+        span:nth-child(2) {
+            text-transform: uppercase;
+            width: 9.375vw; //150px; 1600
+            transform: translateY(-0.25vw); //-4px; 1600
+
+            @media (max-width: 768px) {
+                width: 40vw;
+            }
+        }
+
+        img {
+            transform: translateY(-0.25vw); //-4px; 1600
+        }
+    }
+
+    .tools {
+        position: absolute;
+        bottom: 2vw; //32px; 1600
+        left: 2.5vw; //160px; 1600
+        z-index: 10;
+        opacity: 0;
+
+        @media (max-width: 768px) {
+            height: 11.594vw; //48px; 414
+            bottom: 4vw;
+            left: 4.831vw;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2vw; //32px; 1600
+
+            li {
+                font-size: 1vw; //16px; 1600
+                color: $color-grey;
+                border: 0.5px solid rgba(255, 255, 255, 0.5);
+                border-radius: 4px;
+                background: linear-gradient(
+                    to top,
+                    rgba(255, 255, 255, 0.1),
+                    rgba(255, 255, 255, 0.06)
+                );
+                padding: 0.125vw 0.625vw; //2px 20px; 1600
+
+                @media (max-width: 768px) {
+                    font-size: 2.684vw; //11.11px; 414
+                }
+            }
+        }
+    }
+}

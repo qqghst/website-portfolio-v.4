@@ -1,0 +1,16 @@
+.margin2 {
+    transform: translateX(5.063vw); //81px, 1600
+
+    @media (max-width: 768px) {
+        transform: translateX(0);
+    }
+}
+
+.margin3 {
+    transform: translateX(-2.563vw); //-41px, 1600
+    z-index: 1000;
+
+    @media (max-width: 768px) {
+        transform: translateX(0);
+    }
+}

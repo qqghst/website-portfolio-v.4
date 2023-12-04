@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import Image from 'next/image';
-import Title from '@/ui/masthead/title';
-
-import MobileButton from '@/ui/masthead/mobile-button';
-import MouseBlur from '@/ui/masthead/mouse-blur';
+import Title from './components/title';
+import MouseBlur from './components/mouse-blur';
+import MobileButton from '@/ui/mobile-button';
 
 const Masthead: React.FC = () => {
 	return (
