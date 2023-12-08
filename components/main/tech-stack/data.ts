@@ -30,8 +30,8 @@ export const techStackData = [
 	},
 	{
 		id: 4,
-		title: 'Mobile.',
-		tools: ['React Native'],
+		title: 'Backend.',
+		tools: ['Node.js', 'Express.js'],
 		showLine: false,
 	},
 ];
